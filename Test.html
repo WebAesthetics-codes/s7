@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Oh, Hello There Animation</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #loadingText {
+      font-size: 24px;
+      font-family: sans-serif;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+<div id="loadingText"></div>
+
+<script>
+  $(document).ready(function () {
+    var fullText = "Oh, Hello There";
+    var currentIndex = 0;
+
+    function revealText() {
+      if (currentIndex <= fullText.length) {
+        $('#loadingText').text(fullText.substring(0, currentIndex));
+        currentIndex++;
+        setTimeout(revealText, 150); // adjust speed here
+      }
+    }
+
+    revealText();
+  });
+</script>
+
+</body>
+</html>
