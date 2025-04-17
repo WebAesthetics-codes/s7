@@ -37,4 +37,23 @@ $(document).ready(function () {
       $('#navbarNav').removeClass('hidden')
     }
   })
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  gsap.to('.video-section', {
+    scrollTrigger: {
+      trigger: '.video-section',
+      start: 'top center',
+      end: 'bottom top',
+      scrub: true,
+      markers: false
+    },
+    scale: 1,
+    opacity: 1,
+    width: '100vw',
+    height: '100vh',
+    bottom: '0',
+    transform: 'translateX(-50%)',
+    ease: 'power3.out'
+  })
 })
