@@ -1,0 +1,179 @@
+:root {
+    --primary-color: 255, 255, 255;
+    --secondary-color: 0, 0, 0;
+    --territory-color: 132, 132, 132;
+    --white-color: 255, 255, 255;
+    --black-color: 0, 0, 0;
+    --sub-color: 20, 20, 20;
+    --primary-font-family: 'Nebulica VF';
+    --secondary-font-family: 'Manrope';
+}
+
+@mixin min-992 {
+    @media (min-width:992px) {
+        @content;
+    }
+}
+
+*,
+body,
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nebulica VF';
+    color: rgba(var(--black-color));
+    background-color: rgba(var(--secondary-color));
+}
+
+.home-view {
+    width: 100%;
+    height: 100%;
+
+    .loader {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h2 {
+            font-family: var(--primary-font-family);
+            font-weight: 400;
+            font-size: 30px;
+            line-height: 100%;
+            letter-spacing: 12%;
+            text-align: center;
+            color: rgba(var(--territory-color));
+        }
+    }
+
+    .navbar {
+        width: 100%;
+
+        .navbar-brand {
+            width: 197px;
+            height: 51px;
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+
+        .navbar-collapse {
+            transition: all 0.6s ease;
+
+            .navbar-nav {
+                .nav-item {
+                    a {
+                        color: rgba(var(--territory-color));
+                        font-family: var(--secondary-font-family);
+                        font-weight: 400;
+                        font-size: 18px;
+                        line-height: 130%;
+                        letter-spacing: 0%;
+                        text-align: center;
+
+                        &:hover {
+                            color: rgba(var(--white-color));
+                        }
+
+                        @include min-992() {
+                            padding: 0 25px;
+                        }
+                    }
+
+                    .active {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+
+        .navbar-collapse.hidden {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+
+        .menu-open {
+            span {
+                color: #fff;
+                cursor: pointer;
+                position: fixed;
+                top: 20px;
+                color: white;
+                transition: all 0.6s ease;
+                z-index: 999;
+                opacity: 0;
+                transform: translateX(100%);
+            }
+
+            span.show {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    }
+
+    .menu-scroll-view {
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(var(--sub-color));
+        position: fixed;
+        top: 0;
+        z-index: 100000;
+        display: none;
+
+        .menu-scroll-view-inner {
+            padding: 50px 20px;
+            border-bottom: solid 1px rgba(var(--territory-color));
+            height: 25vh;
+
+            .close-menu {
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                cursor: pointer;
+            }
+
+            // &:first-child {
+            //     border-bottom: 0;
+            // }
+            &:last-child {
+                border-bottom: 0;
+                // border-radius: 14px 14px;
+            }
+
+            a {
+                font-family: var(--secondary-font-family);
+                font-weight: 400;
+                font-size: 35px;
+                text-decoration: none;
+                color: rgba(var(--territory-color));
+                display: inline-block;
+                width: 100%;
+                text-transform: uppercase;
+                text-align: right;
+                transition: all 0.6s ease;
+                font-weight: 600;
+
+                &:hover {
+                    color: rgba(var(--white-color));
+                }
+            }
+        }
+    }
+
+    .banner-section {
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(var(--black-color));
+    }
+
+    .video-section {
+        width: 100%;
+        height: 100vh;
+        background-color: yellow;
+    }
+}

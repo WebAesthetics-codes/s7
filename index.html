@@ -8,14 +8,85 @@
     <title>S7</title>
     <link rel="stylesheet" href="css/custom-styles.css" />
     <link rel="stylesheet" href="css/custom-fonts.css" />
-    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
-     <script type="text/javascript" src="js/custom.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
 </head>
 
-<body>
-    <div class="loader">
+<body class="home-view scroll-container">
+    <!-- <div class="loader" id="loader">
         <h2 id="loadingText"></h2>
+    </div> -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.svg" alt="logo" />
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="menu-open">
+                <span class="sub-menu" id="sub-menu">Menu</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="menu-scroll-view" id="menu-scroll-view">
+        <!-- <div class="menu-scroll-view-inner">
+            <div class="close-menu">
+                <svg width="350" height="34" viewBox="0 0 350 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="316.3" y="0.3" width="33.4" height="33.4" rx="16.7" stroke="#EEEEEE" stroke-width="0.6" />
+                    <path d="M326 10L340 24" stroke="#EEEEEE" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M340 10L326 24" stroke="#EEEEEE" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+        </div> -->
+
+        <div class="menu-scroll-view-inner">
+            <a href="#">Home</a>
+        </div>
+        <div class="menu-scroll-view-inner">
+            <a href="#">Services</a>
+        </div>
+        <div class="menu-scroll-view-inner">
+            <a href="#">About Us</a>
+        </div>
+        <div class="menu-scroll-view-inner">
+            <a href="#">Contact</a>
+        </div>
     </div>
+
+    <section class="banner-section"></section>
+
+    <section class="video-section"></section>
+
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+
 </body>
 
 </html>
