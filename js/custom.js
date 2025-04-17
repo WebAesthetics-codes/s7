@@ -19,7 +19,7 @@ $(document).ready(function () {
   }
 
   $('#sub-menu').click(function () {
-    $('#menu-scroll-view').slideToggle()
+    $('#menu-scroll-view').show()
     $('body').css('overflow', 'hidden')
   })
 
