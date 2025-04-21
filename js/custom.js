@@ -82,7 +82,7 @@ $(document).ready(function () {
     },
     scale: 1,
     opacity: 1,
-    width: '100vw',
+    width: '75vw',
     height: '100vh',
     top: '0',
     transform: 'translateX(-50%)',
@@ -100,7 +100,7 @@ $(document).ready(function () {
     },
     scale: 1,
     opacity: 1,
-    width: '100vw',
+    width: '75vw',
     height: '100vh',
     top: '0',
     transform: 'translateX(-50%)',
@@ -118,7 +118,7 @@ $(document).ready(function () {
     },
     scale: 1,
     opacity: 1,
-    width: '100vw',
+    width: '75vw',
     height: '100vh',
     top: '0',
     transform: 'translateX(-50%)',
@@ -136,7 +136,7 @@ $(document).ready(function () {
     },
     scale: 1,
     opacity: 1,
-    width: '100vw',
+    width: '75vw',
     height: '100vh',
     top: '0',
     transform: 'translateX(-50%)',
@@ -148,5 +148,52 @@ $(document).ready(function () {
     repeat: -1,
     duration: 10,
     ease: 'linear'
+  })
+
+  console.clear()
+
+  const sections = gsap.utils.toArray('.scroll-item')
+  const title = document.querySelector('.hdr')
+
+  ScrollTrigger.create({
+    trigger: sections[0],
+    start: 'top top',
+    end: 'top+=100 top',
+    endTrigger: sections[sections.length - 1],
+    pin: title,
+    pinSpacing: false,
+    //markers: { indent: 300 },
+    id: 'H2'
+  })
+
+  gsap.to('.who-we-are-section-inner', {
+    scrollTrigger: {
+      trigger: '.who-we-are-section',
+      start: 'top top',
+      end: '+=100%',
+      scrub: true,
+      pin: true,
+      markers: true // turn off in prod
+    },
+    width: '100vw',
+    height: '120vh',
+    borderRadius: 0,
+    scale: 1,
+    opacity: 1,
+    xPercent: -50,
+    yPercent: -50,
+    ease: 'power3.out'
+  })
+
+  gsap.to('.who-we-are-section-hdr h2', {
+    x: '100vw',
+    opacity: 1,
+    scrollTrigger: {
+      trigger: '.who-we-are-section-inner',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true,
+      markers: false
+    }
   })
 })
