@@ -3,7 +3,7 @@ $(document).ready(function () {
 
   setTimeout(() => {
     $('#loader').hide()
-  }, 3000)
+  }, 5000)
 
   function loading () {
     var fullText = 'Oh, Hello There'
