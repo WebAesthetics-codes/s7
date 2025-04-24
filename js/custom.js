@@ -170,28 +170,25 @@ $(document).ready(function () {
     scrollTrigger: {
       trigger: '.who-we-are-section',
       start: 'top top',
-      end: '+=100%',
+      //end: '+=100%',
       scrub: true,
       pin: true,
-      markers: true // turn off in prod
+      markers: true
     },
-    width: '100vw',
-    height: '120vh',
+
     borderRadius: 0,
     scale: 1,
     opacity: 1,
-    xPercent: -50,
-    yPercent: -50,
     ease: 'power3.out'
   })
 
   gsap.to('.who-we-are-section-inner', {
-    //scale: 1.2,
-    //opacity: 1,
+    scale: 1.2,
+    opacity: 1,
     scrollTrigger: {
       trigger: '.who-we-are-section',
       start: 'top top',
-      end: 'top+=100 top',
+      end: 'bottom top',
       scrub: true
     },
     width: '100vw',
@@ -206,7 +203,7 @@ $(document).ready(function () {
       scale: 1.2,
       opacity: 1,
       scrollTrigger: {
-        trigger: '.who-we-are-section-inner',
+        trigger: '.who-we-are-section',
         start: 'top bottom',
         end: 'bottom top',
         scrub: true,
