@@ -83,7 +83,7 @@ $(document).ready(function () {
     scale: 1,
     opacity: 1,
     width: '75vw',
-    height: '100vh',
+    height: '83vh',
     top: '0',
     transform: 'translateX(-50%)',
     ease: 'power3.out'
@@ -185,15 +185,33 @@ $(document).ready(function () {
     ease: 'power3.out'
   })
 
-  gsap.to('.who-we-are-section-hdr h2', {
-    x: '100vw',
-    opacity: 1,
+  gsap.to('.who-we-are-section-inner', {
+    //scale: 1.2,
+    //opacity: 1,
     scrollTrigger: {
-      trigger: '.who-we-are-section-inner',
-      start: 'top bottom',
-      end: 'bottom top',
-      scrub: true,
-      markers: false
-    }
+      trigger: '.who-we-are-section',
+      start: 'top top',
+      end: 'top+=100 top',
+      scrub: true
+    },
+    width: '100vw',
+    height: '120vh',
+    ease: 'power3.out'
   })
+
+  gsap.fromTo(
+    '.who-we-are-section-img h2',
+    { scale: 0.2, opacity: 0 },
+    {
+      scale: 1.2,
+      opacity: 1,
+      scrollTrigger: {
+        trigger: '.who-we-are-section-inner',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true,
+        markers: false
+      }
+    }
+  )
 })

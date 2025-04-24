@@ -192,7 +192,7 @@ body {
             width: 200px;
             height: 150px;
             opacity: 0;
-            padding: 40px 30px;
+            padding: 40px 0px;
 
             video {
                 width: 100%;
@@ -417,7 +417,7 @@ body {
 
         .items-section-view {
             width: 100%;
-            height: 130vh !important;
+            height: 100vh !important;
 
             .items-section-inner {
                 position: absolute;
@@ -626,31 +626,37 @@ body {
 
         .who-we-are-section-inner {
             position: absolute;
-            top: 50%;
+            top: 20%;
             left: 50%;
-            width: 150px;
-            height: 250px;
+            width: 450px;
+            height: 450px;
             background-color: rgba(var(--white-color));
             border-radius: 100%;
             transform: translate(-50%, -50%) scale(0.8);
             opacity: 0.5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             color: white;
-            font-size: 2rem;
+            overflow: visible;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-            .who-we-are-section-hdr {
+            .who-we-are-section-img {
                 h2 {
-                    font-family: var(--primary-font-family);
-                    font-weight: 500;
-                    font-size: 500px;
-                    line-height: 130%;
-                    letter-spacing: 0%;
-                    text-align: center;
-                    text-transform: uppercase;
-                    white-space: nowrap;
-                    transform: translateX(-100%);
+                    margin: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0;
+
+                    img {
+                        max-width: 80%;
+                        max-height: 80%;
+                        object-fit: contain;
+                        display: block;
+                        border-radius: 20%;
+                    }
                 }
             }
         }
