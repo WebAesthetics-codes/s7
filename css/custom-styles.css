@@ -573,6 +573,7 @@ body {
   height: 100%;
   padding-bottom: 120px;
   margin-top: -500px;
+  position: relative;
 }
 .home-view .our-clients .our-clients-hdr {
   width: 100%;
@@ -608,6 +609,7 @@ body {
   height: 100%;
   padding-bottom: 120px;
   padding-top: 30px;
+  position: relative;
 }
 .home-view .sister-company-section .sister-company-hdr {
   width: 100%;
@@ -661,6 +663,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   padding: 100px 0;
+  position: relative;
 }
 .home-view .blog-section .blog-inner {
   width: 100%;
@@ -893,6 +896,7 @@ body {
 .home-view footer {
   width: 100%;
   padding: 220px 40px 0;
+  position: relative;
 }
 .home-view footer .footer-top {
   width: 100%;
