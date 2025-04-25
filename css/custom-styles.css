@@ -243,10 +243,11 @@ body {
 .home-view .our-services {
   width: 100%;
   min-height: 100vh;
-  padding: 80px 40px;
+  padding: 80px 80px;
 }
 .home-view .our-services .our-services-hdr {
   width: 100%;
+  position: relative;
 }
 .home-view .our-services .our-services-hdr h2 {
   font-weight: 400;

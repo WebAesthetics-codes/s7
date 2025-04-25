@@ -293,10 +293,11 @@ body {
     .our-services {
         width: 100%;
         min-height: 100vh;
-        padding: 80px 40px;
+        padding: 80px 80px;
 
         .our-services-hdr {
             width: 100%;
+            position: relative;
 
             h2 {
                 font-weight: 400;
