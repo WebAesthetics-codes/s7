@@ -156,7 +156,6 @@ body {
   transform: translateX(-50%) scale(0.2);
   width: 200px;
   height: 150px;
-  opacity: 0;
   padding: 40px 0px;
 }
 .home-view .video-section .video-section-inner video {
@@ -362,7 +361,6 @@ body {
   width: 300px;
   height: 150px;
   transition: all 0.3s ease;
-  opacity: 0;
   padding: 20px 40px;
 }
 .home-view .items-section .items-section-view .items-section-inner p {
@@ -400,7 +398,6 @@ body {
   width: 200px;
   height: 150px;
   transition: all 0.3s ease;
-  opacity: 0;
   padding: 20px 40px;
 }
 .home-view .items-section-second .items-section-view-second .items-section-inner-second p {
@@ -438,7 +435,6 @@ body {
   width: 200px;
   height: 150px;
   transition: all 0.3s ease;
-  opacity: 0;
   padding: 20px 40px;
 }
 .home-view .items-section-third .items-section-view-third .items-section-inner-third p {
@@ -476,7 +472,6 @@ body {
   width: 200px;
   height: 150px;
   transition: all 0.3s ease;
-  opacity: 0;
   padding: 20px 40px;
 }
 .home-view .items-section-four .items-section-view-four .items-section-inner-four p {
@@ -502,6 +497,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: -400px;
 }
 .home-view .our-work p {
   font-family: var(--secondary-font-family);
@@ -690,6 +686,13 @@ body {
   justify-content: center;
   padding: 0 20px;
 }
+.home-view .blog-section .blog-inner .blog-left .blog-left-top:hover {
+  background: linear-gradient(to bottom, black 0%, transparent 40%, transparent 60%, black 100%), url("/images/blog/blog-bg-1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transition: all 0.4s ease;
+}
 .home-view .blog-section .blog-inner .blog-left .blog-left-top .blog-user-section {
   width: 100%;
   display: flex;
@@ -730,6 +733,13 @@ body {
   flex-direction: column;
   justify-content: center;
   padding: 0 20px;
+}
+.home-view .blog-section .blog-inner .blog-left .blog-left-bottom:hover {
+  background: linear-gradient(to bottom, black 0%, transparent 40%, transparent 60%, black 100%), url("/images/blog/blog-bg-2.png");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+  transition: all 0.4s ease;
 }
 .home-view .blog-section .blog-inner .blog-left .blog-left-bottom .blog-user-section {
   width: 100%;
@@ -778,6 +788,13 @@ body {
   justify-content: center;
   padding: 0 20px;
 }
+.home-view .blog-section .blog-inner .blog-center .blog-center-all:hover {
+  background: linear-gradient(to bottom, black 0%, transparent 40%, transparent 60%, black 100%), url("/images/blog/blog-bg-3.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  border-radius: 20px;
+}
 .home-view .blog-section .blog-inner .blog-center .blog-center-all .blog-user-section {
   width: 100%;
   display: flex;
@@ -825,6 +842,13 @@ body {
   justify-content: center;
   padding: 0 20px;
 }
+.home-view .blog-section .blog-inner .blog-right .blog-right-top:hover {
+  background: linear-gradient(to bottom, black 0%, transparent 40%, transparent 60%, black 100%), url("/images/blog/blog-bg-4.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  border-radius: 20px;
+}
 .home-view .blog-section .blog-inner .blog-right .blog-right-top .blog-user-section {
   width: 100%;
   display: flex;
@@ -865,6 +889,13 @@ body {
   flex-direction: column;
   justify-content: center;
   padding: 0 20px;
+}
+.home-view .blog-section .blog-inner .blog-right .blog-right-bottom:hover {
+  background: linear-gradient(to bottom, black 0%, transparent 40%, transparent 60%, black 100%), url("/images/blog/blog-bg-5.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  border-radius: 20px;
 }
 .home-view .blog-section .blog-inner .blog-right .blog-right-bottom .blog-user-section {
   width: 100%;
@@ -970,7 +1001,10 @@ body {
   padding: 10px;
   margin-top: 75px;
 }
-.home-view footer .footer-text-section h2 {
+.home-view footer .footer-text-section .marquee {
+  display: inline-flex;
+}
+.home-view footer .footer-text-section .marquee h2 {
   font-family: var(--secondary-font-family);
   font-weight: 400;
   font-size: 160px;
@@ -979,6 +1013,7 @@ body {
   text-align: center;
   text-transform: uppercase;
   color: rgba(var(--white-color));
+  white-space: nowrap;
 }
 .home-view footer .footer-bottom {
   width: 100%;

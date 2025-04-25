@@ -50,7 +50,7 @@ $(document).ready(function () {
       markers: false
     },
     scale: 1,
-    opacity: 1,
+    // opacity: 1,
     width: '100vw',
     height: '100vh',
     top: '0',
@@ -74,7 +74,7 @@ $(document).ready(function () {
   gsap.to('.items-section-inner', {
     scrollTrigger: {
       trigger: '.items-section-view',
-      start: 'top top',
+      start: 'top center',
       end: 'bottom center',
       scrub: true,
       pin: true,
@@ -92,7 +92,7 @@ $(document).ready(function () {
   gsap.to('.items-section-inner-second', {
     scrollTrigger: {
       trigger: '.items-section-view-second',
-      start: 'top top',
+      start: 'top center',
       end: 'bottom center',
       scrub: true,
       pin: true,
@@ -110,8 +110,8 @@ $(document).ready(function () {
   gsap.to('.items-section-inner-third', {
     scrollTrigger: {
       trigger: '.items-section-view-third',
-      start: 'top top',
-      end: '+=100%',
+      start: 'top center',
+      end: 'bottom center',
       scrub: true,
       pin: true,
       markers: false
@@ -128,8 +128,8 @@ $(document).ready(function () {
   gsap.to('.items-section-inner-four', {
     scrollTrigger: {
       trigger: '.items-section-view-four',
-      start: 'top top',
-      end: '+=100%',
+      start: 'top center',
+      end: 'bottom center',
       scrub: true,
       pin: true,
       markers: false
@@ -141,13 +141,6 @@ $(document).ready(function () {
     top: '0',
     transform: 'translateX(-50%)',
     ease: 'power3.out'
-  })
-
-  gsap.to('.footer-text-section h2', {
-    xPercent: -50,
-    repeat: -1,
-    duration: 10,
-    ease: 'linear'
   })
 
   console.clear()
