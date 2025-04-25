@@ -145,7 +145,7 @@ body {
 }
 .home-view .video-section {
   width: 100%;
-  height: 100vh;
+  height: 115vh;
   position: relative;
   box-sizing: border-box;
 }
@@ -190,7 +190,7 @@ body {
   padding-bottom: 150px;
   position: relative;
 }
-.home-view .logo-section .video-section {
+.home-view .logo-section .video-sections {
   width: 100%;
   height: 100vh;
 }
@@ -553,7 +553,8 @@ body {
   align-items: center;
   width: 100%;
   height: 100%;
-  opacity: 0;
+  opacity: 1;
+  overflow: visible;
 }
 .home-view .who-we-are-section .who-we-are-section-inner .who-we-are-section-img h2 img {
   max-width: 80%;
@@ -562,6 +563,7 @@ body {
      object-fit: contain;
   display: block;
   border-radius: 20%;
+  will-change: transform;
 }
 .home-view .gsap-pin-spacer {
   height: 100vh !important;
@@ -1005,4 +1007,5 @@ body {
 
 .position-fixed {
   position: fixed;
+  top: 0;
 }/*# sourceMappingURL=custom-styles.css.map */

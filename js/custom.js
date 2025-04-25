@@ -197,15 +197,20 @@ $(document).ready(function () {
   })
 
   gsap.fromTo(
-    '.who-we-are-section-img h2',
-    { scale: 0.2, opacity: 0 },
+    '.who-we-are-section-img img',
     {
-      scale: 1.2,
+      x: '0vw',
+      opacity: 0,
+      scale: 0.8
+    },
+    {
+      x: '0vw',
+      scale: 1,
       opacity: 1,
       scrollTrigger: {
         trigger: '.who-we-are-section',
-        start: 'top bottom',
-        end: 'bottom top',
+        start: 'top center',
+        end: 'bottom center',
         scrub: true,
         markers: false
       }
