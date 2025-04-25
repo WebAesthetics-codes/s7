@@ -75,7 +75,7 @@ $(document).ready(function () {
     scrollTrigger: {
       trigger: '.items-section-view',
       start: 'top top',
-      end: '+=100%',
+      end: 'bottom center',
       scrub: true,
       pin: true,
       markers: false
@@ -93,7 +93,7 @@ $(document).ready(function () {
     scrollTrigger: {
       trigger: '.items-section-view-second',
       start: 'top top',
-      end: '+=100%',
+      end: 'bottom center',
       scrub: true,
       pin: true,
       markers: false
@@ -211,4 +211,12 @@ $(document).ready(function () {
       }
     }
   )
+
+  $(window).scroll(function () {
+    if ($(this).scrollTop() >= 400) {
+      $('#banner-section').css({ background: '#000' })
+    } else {
+      $('#banner-section').css({ background: '' })
+    }
+  })
 })
