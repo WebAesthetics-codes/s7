@@ -143,8 +143,6 @@ $(document).ready(function () {
     ease: 'power3.out'
   })
 
-  console.clear()
-
   const sections = gsap.utils.toArray('.scroll-item')
   const title = document.querySelector('.hdr')
 
@@ -155,7 +153,6 @@ $(document).ready(function () {
     endTrigger: sections[sections.length - 1],
     pin: title,
     pinSpacing: false,
-    //markers: { indent: 300 },
     id: 'H2'
   })
 
