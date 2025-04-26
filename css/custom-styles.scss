@@ -260,6 +260,31 @@ body {
         }
     }
 
+    .content-section-scroll {
+        width: 100%;
+        height: 100vh;
+        background-color: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+
+        .content-text-view {
+            max-width: 66%;
+            font-weight: 500;
+            font-size: 32px;
+            line-height: 150%;
+            letter-spacing: 0%;
+
+            .letter {
+                display: inline-block;
+                color: #777777cc;
+                font-family: var(--secondary-font-family);
+            }
+        }
+    }
+
     .logo-section {
         width: 100%;
         height: 100vh;
