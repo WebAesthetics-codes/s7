@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Scroll Image Inside Growing Circle</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 300vh;
+            background: #111;
+            font-family: sans-serif;
+            overflow-x: hidden;
+        }
+
+        .circle-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            box-sizing: border-box;
+            opacity: 0;
+        }
+
+        .scroll-text {
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .scroll-text img {
+            height: 100%;
+            width: auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="circle-container">
+        <div class="scroll-text" id="scrollText">
+            <img src="/images/who.svg" alt="scrolling image" />
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const maxSize = Math.sqrt(vw * vw + vh * vh);
+
+        gsap.to(".circle-container", {
+            width: maxSize,
+            height: maxSize,
+            opacity: 1,
+            scrollTrigger: {
+                trigger: "body",
+                start: "top top",
+                end: "50% top",
+                scrub: true
+            }
+        });
+
+        window.addEventListener("load", () => {
+            const scrollText = document.getElementById("scrollText");
+            const img = scrollText.querySelector("img");
+            setTimeout(() => {
+                const imgWidth = img.offsetWidth;
+                const visibleSize = maxSize;
+                const scrollDistance = Math.max(0, imgWidth - visibleSize);
+
+                gsap.to(".scroll-text", {
+                    x: -scrollDistance,
+                    scrollTrigger: {
+                        trigger: "body",
+                        start: "50% top",
+                        end: "bottom bottom",
+                        scrub: true
+                    }
+                });
+            }, 100);
+        });
+    </script>
+
+</body>
+
+</html>
