@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>S7</title>
+    <title>Scroll Circle Animation</title>
     <style>
         html,
         body {
@@ -15,8 +15,30 @@
             overflow-x: hidden;
         }
 
-        .circle-container {
+        /* Sections */
+        .section {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+        }
+
+        /* Fixed wrapper that ensures position stays centered */
+        .circle-wrapper {
             position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .circle-container {
+            position: absolute;
             top: 50%;
             left: 50%;
             width: 50px;
@@ -27,8 +49,7 @@
             overflow: hidden;
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            box-sizing: border-box;
+            justify-content: center;
             opacity: 0;
         }
 
@@ -46,13 +67,28 @@
 </head>
 
 <body>
+    <div class="section" style="background-color: green;">
+        TEST TOP
+    </div>
 
-    <div class="circle-container">
-        <div class="scroll-text" id="scrollText">
-            <img src="/images/who.svg" alt="scrolling image" />
+    <div class="section" style="background-color: red;">
+        TEST TOP
+    </div>
+
+    <!-- Fixed circle and scroll text wrapper -->
+    <div class="circle-wrapper">
+        <div class="circle-container">
+            <div class="scroll-text" id="scrollText">
+                <img src="/images/who.svg" alt="scrolling image" />
+            </div>
         </div>
     </div>
 
+    <div class="section" style="background-color: blue;">
+        TEST BOTTOM
+    </div>
+
+    <!-- GSAP + ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
@@ -63,6 +99,7 @@
         const vh = window.innerHeight;
         const maxSize = Math.sqrt(vw * vw + vh * vh);
 
+        // Grow the circle and fade in as user scrolls down
         gsap.to(".circle-container", {
             width: maxSize,
             height: maxSize,
@@ -75,9 +112,11 @@
             }
         });
 
+        // Scroll image text horizontally when circle is fully expanded
         window.addEventListener("load", () => {
             const scrollText = document.getElementById("scrollText");
             const img = scrollText.querySelector("img");
+
             setTimeout(() => {
                 const imgWidth = img.offsetWidth;
                 const visibleSize = maxSize;
@@ -95,7 +134,6 @@
             }, 100);
         });
     </script>
-
 </body>
 
 </html>

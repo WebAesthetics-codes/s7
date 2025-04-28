@@ -4,150 +4,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="" />
-    <title>S7</title>
-    <link rel="stylesheet" href="css/custom-styles.css" />
-    <link rel="stylesheet" href="css/custom-fonts.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <title>Three.js GLTF Draco Example</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            overflow: hidden;
+            height: 100%;
+        }
 
+        canvas {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="home-view">
-        <div class="banner">
-            <div class="content-view">
-                <h2>We Create Culture</h2>
-                <div id="animation-container"></div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Import Three.JS -->
-    <script src="https://assets.codepen.io/4027472/three.min.js"></script>
-
-    <!-- Import OrbitControls.js for ThreeJS -->
-    <script src="https://assets.codepen.io/4027472/OrbitControls.js"></script>
-
-    <!-- Import GLTFLoader.js to load in our model-->
-    <script src="https://assets.codepen.io/4027472/GLTFLoader.js"></script>
-
-    <!-- Create div for ThreeJS to draw in -->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/loaders/GLTFLoader.js"></script>
+    <script src="/js/DRACOLoader.js"></script>
 
     <script>
-        let gltf = null;
-        let mixer = null;
-        let clock = new THREE.Clock();
-        let controls;
-        let camera;
+        // Create the scene, camera, and renderer
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
 
-        init();
-        animate();
+        // Add a basic light source
+        const light = new THREE.AmbientLight(0x404040);  // Ambient light
+        scene.add(light);
 
-        function init() {
-            // Render size to match the browser
-            width = window.innerWidth;
-            height = window.innerHeight;
+        // Set up the DRACOLoader and GLTFLoader
+        const dracoLoader = new THREE.DRACOLoader();
+        dracoLoader.setDecoderPath('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/libs/draco/'); // URL for Draco decoder
 
-            // Create new scene
-            scene = new THREE.Scene();
+        const gltfLoader = new THREE.GLTFLoader();
+        gltfLoader.setDRACOLoader(dracoLoader);
 
-            // Lighting setup    
-            let ambient = new THREE.AmbientLight(0xffffff);
-            scene.add(ambient);
-            const light = new THREE.SpotLight(0xFFFFFF, 2, 100, Math.PI / 4, 8);
-            light.position.set(10, 25, 45);
-            light.castShadow = true;
-            scene.add(light);
+        // Load a Draco-compressed GLTF model
+        gltfLoader.load('path/to/your/model.glb', (gltf) => {
+            scene.add(gltf.scene);
+            animate();
+        }, undefined, (error) => {
+            console.error(error);
+        });
 
-            // Camera setup
-            camera = new THREE.PerspectiveCamera(60, width / height, 0.01, 10000);
-            camera.position.set(0, -10, 30);
-            let geometry = new THREE.BoxGeometry(100, 5, 100);
-            let material = new THREE.MeshLambertMaterial({
-                color: "#999999"
-            });
+        // Camera position
+        camera.position.z = 5;
 
-            let manager = new THREE.LoadingManager();
-            manager.onProgress = function (item, loaded, total) {
-                console.log(item, loaded, total);
-            };
-
-            let loader = new THREE.GLTFLoader();
-            loader.setCrossOrigin('anonymous');
-
-            let scale = 20;
-            //let url = "./images/glb/S7_Disepersion.glb";
-            let url = "images/glb/gg-animated5.glb";
-
-            loader.load(url, function (data) {
-                gltf = data;
-                let object = gltf.scene;
-                object.scale.set(scale, scale, scale);
-                object.position.y = 0;
-                object.position.x = 0;
-                object.position.z = 0;
-                object.castShadow = true;
-                object.receiveShadow = true;
-
-                let animations = gltf.animations;
-                if (animations && animations.length) {
-                    mixer = new THREE.AnimationMixer(object);
-                    for (let i = 0; i < animations.length; i++) {
-                        let animation = animations[i];
-                        mixer.clipAction(animation).play();
-                    }
-                }
-                scene.add(object);
-            });
-
-            // Create renderer and include antialiasing to smoothen edges
-            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-            //renderer.setClearColor(0xD0D3D4);
-            renderer.shadowMap.enabled = true;
-
-            // Allow user to orbit around object
-            controls = new THREE.OrbitControls(camera, renderer.domElement);
-            controls.userPan = false;
-            controls.userPanSpeed = 0.0;
-            controls.maxDistance = 5000.0;
-            controls.maxPolarAngle = Math.PI * 0.495;
-            //controls.autoRotate = true;
-            controls.autoRotate = true;
-            controls.autoRotateSpeed = -1.0;
-
-            renderer.setSize(width, height);
-            renderer.gammaOutput = true;
-            //document.body.appendChild(renderer.domElement);
-            document.getElementById("animation-container").appendChild(renderer.domElement);
-        }
-
+        // Animation loop
         function animate() {
             requestAnimationFrame(animate);
-            if (mixer) mixer.update(clock.getDelta());
-            controls.update();
-            render();
-        }
-        // Fire it up!
-        function render() {
             renderer.render(scene, camera);
         }
+
     </script>
 </body>
 

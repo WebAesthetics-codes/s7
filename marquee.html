@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Marquee</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .marquee-text {
+            display: inline-block;
+            padding-right: 100%;
+            /* Make sure it has extra space at the end */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="marquee-container">
+        <div class="marquee-text">
+            <h2>We Create Culture. It Moves Everything We Do</h2>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var $marqueeText = $(".marquee-text");
+            var containerWidth = $(".marquee-container").width();
+            var textWidth = $marqueeText.width();
+
+            // Make sure the marquee text is wider than the container
+            if (textWidth < containerWidth) {
+                $marqueeText.css('padding-right', containerWidth);  // Add extra space if it's not enough
+                textWidth = $marqueeText.width(); // Recalculate width after adding padding
+            }
+
+            // Move the text to the left
+            function moveMarquee() {
+                $marqueeText.animate({
+                    left: '-' + textWidth + 'px'
+                }, 10 * textWidth, 'linear', function () {
+                    // Reset the position when the animation is done
+                    $marqueeText.css('left', containerWidth);
+                    moveMarquee(); // Loop the animation
+                });
+            }
+
+            // Initialize the marquee animation
+            moveMarquee();
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="" />
     <title>S7</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/custom-styles.css" />
     <link rel="stylesheet" href="css/custom-fonts.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-
 </head>
 
 <body class="home-view scroll-container">
@@ -19,7 +17,7 @@
         <h2 id="loadingText"></h2>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="images/logo.svg" alt="logo" />
@@ -54,6 +52,16 @@
     </nav>
 
     <div class="menu-scroll-view" id="menu-scroll-view">
+        <!-- <div class="menu-scroll-view-inner">
+            <div class="close-menu">
+                <svg width="350" height="34" viewBox="0 0 350 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="316.3" y="0.3" width="33.4" height="33.4" rx="16.7" stroke="#EEEEEE" stroke-width="0.6" />
+                    <path d="M326 10L340 24" stroke="#EEEEEE" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M340 10L326 24" stroke="#EEEEEE" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+        </div> -->
+
         <div class="menu-scroll-view-inner">
             <a href="#">Home</a>
         </div>
@@ -68,12 +76,7 @@
         </div>
     </div>
 
-    <section class="banner position-fixed" id="banner-section">
-        <div class="content-view">
-            <h2>We Create Culture</h2>
-            <div id="animation-container"></div>
-        </div>
-    </section>
+    <section class="banner-section position-fixed" id="banner-section"></section>
 
     <section class="video-section">
         <div class="video-section-inner">
@@ -89,12 +92,12 @@
     </section>
 
     <section class="logo-section">
-        <!-- <div class="video-sections">
+        <div class="video-sections">
             <video class="elementor-background-video-hosted" autoplay="" muted="" playsinline="" loop=""
                 src="https://s7.webaesthetics.tech/wp-content/uploads/2025/04/67f51cbbbbf6154e3730c36515b512d0.mp4"
                 style="width: 1265px; height: 100vh;">
             </video>
-        </div> -->
+        </div>
 
         <div class="content-section">
             <div class="hdr-section">
@@ -198,14 +201,38 @@
         </div>
     </section>
 
-    <section class="work-section">
-        <div style="width: 100%;position: relative;background-color: #000;">
+    <style>
+        .our-items {
+            width: 100%;
+            color: #fff;
+        }
 
-            <div style="width: 100%;height:100vh;position: absolute;color:#fff;">
+
+        .pin-spacer-H2 {
+            width: 100% !important;
+            height: 100vh !important;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .pin-spacer-H2 h2 {
+            font-size: 180px;
+            height: auto !important;
+            max-height: fit-content !important;
+            color: #fff;
+        }
+    </style>
+
+    <section class="our-items">
+        <div style="width: 100%;position: relative;">
+
+            <div style="width: 100%;height:100vh;position: absolute;">
                 <h2 class="hdr">WORK</h2>
             </div>
 
-            <div style="width:100%;height:100%;">
+            <div style="width:100%;">
                 <div class="scroll-item">
                     <section class="items-section">
                         <div class="items-section-view">
@@ -265,32 +292,26 @@
         </div>
     </section>
 
-    <section class="content-section-scroll">
-        <div class="content-text-view" id="textToAnimate">
-            Our work is a reflection of our passion for culture and innovation. With deep expertise across
-            sustainability,
-            sports, and space, we create experiences that bring&nbsp; people together, ignite change, and shape the
+    <section class="our-work">
+        <p>
+            Our work is a reflection of our passion for culture and innovation. With deep expertise
+            across
+            sustainability, sports,
+            and space, we create experiences that bring people together, ignite change, and shape the
             future.
-        </div>
+        </p>
+        <button type="button">View More</button>
     </section>
 
-    <style>
-
-    </style>
-
-    <!-- <section class="section">
-        <div class="circle-wrapper">
-            <div class="circle-container">
-                <div class="scroll-text" id="scrollText">
-                    <img src="/images/who.svg" alt="scrolling image" />
-                </div>
+    <section class="who-we-are-section">
+        <div class="who-we-are-section-inner">
+            <div class="who-we-are-section-img">
+                <h2>
+                    <img src="/images/who.svg" />
+                </h2>
             </div>
         </div>
-    </section> -->
-
-    <!-- <section style="width: 100%;height:100vh;background-color: rgb(255, 255, 255);position: relative;">
-
-    </section> -->
+    </section>
 
     <section class="our-clients">
         <div class="container">
@@ -303,33 +324,33 @@
                     <img src="/images/clients/logo-12.png" />
                 </div>
 
-                <div class="img-view img-view-center-view">
+                <div class="img-view">
                     <img src="/images/clients/logo-11.png" />
                 </div>
 
-                <div class="img-view img-view-center-view">
+                <div class="img-view">
                     <img src="/images/clients/logo-10.png" />
                 </div>
 
-                <div class="img-view img-view-right-view">
+                <div class="img-view">
                     <img src="/images/clients/logo-9.png" />
                 </div>
             </div>
 
             <div class="our-clients-img-view">
                 <div class="img-view">
-                    <img src="/images/clients/logo-8.png" class="img-view-five" />
+                    <img src="/images/clients/logo-8.png" />
                 </div>
 
-                <div class="img-view img-view-center-view">
+                <div class="img-view">
                     <img src="/images/clients/logo-7.png" />
                 </div>
 
-                <div class="img-view img-view-center-view">
+                <div class="img-view">
                     <img src="/images/clients/logo-6.png" />
                 </div>
 
-                <div class="img-view img-view-right-view">
+                <div class="img-view">
                     <img src="/images/clients/logo-5.png" />
                 </div>
             </div>
@@ -339,15 +360,15 @@
                     <img src="/images/clients/logo-4.png" />
                 </div>
 
-                <div class="img-view img-view-center-view">
+                <div class="img-view">
                     <img src="/images/clients/logo-3.png" />
                 </div>
 
-                <div class="img-view img-view-center-view">
+                <div class="img-view">
                     <img src="/images/clients/logo-2.png" />
                 </div>
 
-                <div class="img-view img-view-right-view">
+                <div class="img-view">
                     <img src="/images/clients/logo-1.png" />
                 </div>
             </div>
@@ -369,13 +390,13 @@
 
                 <div class="items items-two">
                     <div class="items-inner">
-                        <img src="/images/sister-company/5.png" />
+                        <img src="/images/sister-company/2.png" />
                     </div>
                 </div>
 
                 <div class="items items-three">
                     <div class="items-inner">
-                        <img src="/images/sister-company/4.png" />
+                        <img src="/images/sister-company/3.png" />
                     </div>
                 </div>
             </div>
@@ -383,13 +404,13 @@
             <div class="sister-company-items-inner">
                 <div class="items items-two">
                     <div class="items-inner">
-                        <img src="/images/sister-company/3.png" />
+                        <img src="/images/sister-company/4.png" />
                     </div>
                 </div>
 
                 <div class="items items-two">
                     <div class="items-inner">
-                        <img src="/images/sister-company/2.png" />
+                        <img src="/images/sister-company/5.png" />
                     </div>
                 </div>
             </div>
@@ -404,14 +425,11 @@
                     <div style="background-color: #000;border-radius: 20px;">
                         <div class="blog-left-top">
                             <div class="blog-user-section">
-                                <p>DP WORLD</p>
+                                <img src="/images/user.png" />
+                                <p>- Emma Carter</p>
                             </div>
                             <div class="blog-content">
-                                <p>
-                                    S7 flawlessly executed Dubai’s largest corporate cricket tournament with exceptional
-                                    professionalism. Highly recommended
-                                    for organizing premier UAE sports events.
-                                </p>
+                                <p>Sport7 UAE's products boosted my training and performance—highly recommend!</p>
                             </div>
                         </div>
                     </div>
@@ -419,47 +437,48 @@
                     <div style="background-color: #000;border-radius: 20px;">
                         <div class="blog-left-bottom">
                             <div class="blog-user-section">
-                                <p>Emirates Nature WWF</p>
+                                <img src="/images/user.png" />
+                                <p>- Emma Carter</p>
                             </div>
                             <div class="blog-content">
-                                <p>
-                                    S7 delivered an outstanding performance managing Dubai’s biggest corporate cricket
-                                    event. Nashat and the team
-                                    demonstrated remarkable professionalism and service quality. Strongly recommended
-                                    for high-profile sports events in the
-                                    UAE.
-                                </p>
+                                <p>Sport7 UAE's products boosted my training and performance—highly recommend!</p>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="blog-right">
-                    <div class="blog-right-top">
-                        <div class="blog-user-section">
-                            <p>MAJID AL FUTTAIM</p>
-                        </div>
-                        <div class="blog-content">
-                            <p>
-                                A hardworking and professional team. We’re grateful for over 8 years of outstanding
-                                support from MAF, consistently
-                                delivering successful events. Looking forward to achieving even greater milestones
-                                together. Truly a remarkable team!
-                            </p>
-                        </div>
-                    </div>
-
-                    <div style="background-color: #000;border-radius: 20px;">
-                        <div class="blog-right-bottom">
+                <div class="blog-center">
+                    <div style="background-color: #000;border-radius: 20px;height: 750px;">
+                        <div class="blog-center-all">
                             <div class="blog-user-section">
-                                <p>MBRU</p>
+                                <img src="/images/user.png" />
+                                <p>- Emma Carter</p>
                             </div>
                             <div class="blog-content">
-                                <p>
-                                    The team's flexibility and commitment set them apart. It’s a pleasure working with
-                                    such a dedicated and hardworking
-                                    group. - Maryam Al Ali, Senior Executive, MBRU
-                                </p>
+                                <p>Sport7 UAE's products boosted my training and performance—highly recommend!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-right">
+                    <div style="background-color: #000;border-radius: 20px;">
+                        <div class="blog-right-top">
+                            <div class="blog-user-section">
+                                <img src="/images/user.png" />
+                                <p>- Emma Carter</p>
+                            </div>
+                            <div class="blog-content">
+                                <p>Sport7 UAE's products boosted my training and performance—highly recommend!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background-color: #000;border-radius: 20px;height: 100%;">
+                        <div class="blog-right-bottom">
+                            <div class="blog-user-section">
+                                <img src="/images/user.png" />
+                                <p>- Emma Carter</p>
+                            </div>
+                            <div class="blog-content">
+                                <p>Sport7 UAE's products boosted my training and performance—highly recommend!</p>
                             </div>
                         </div>
                     </div>
@@ -479,7 +498,7 @@
                 </p>
             </div>
 
-            <div class="items-section-ft">
+            <div class="items-section">
                 <div class="company-section">
                     <h2>COMPANY</h2>
                     <div class="items">
@@ -513,24 +532,11 @@
                 </div>
             </div>
         </div>
-        <style>
-            .pin-spacer-H2 {
-                width: 100% !important;
-                height: 0vh !important;
-                display: flex !important;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
-            }
-        </style>
+
         <div class="footer-text-section">
             <div class="marquee">
-                <marquee behavior="scroll" direction="left" scrollamount="10" loop="infinite">
-                    <h2>
-                        We Create Culture. It Moves Everything We Do We Create Culture. It Moves Everything We Do We
-                        Create Culture. It Moves Everything We Do We Create Culture. It Moves Everything We Do
-                        We Create Culture. It Moves Everything We Do
-                    </h2>
+                <marquee behavior="scroll" direction="left" scrollamount="20" loop="infinite">
+                    <h2>We Create Culture. It Moves Everything We Do</h2>
                 </marquee>
             </div>
         </div>
@@ -548,21 +554,15 @@
         </div>
     </footer>
 
+
     <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
-    <script src="/js/home.js"></script>
-    <script src="/js/banner.js"></script>
-    <script src="/js/video.js"></script>
-    <script src="/js/content.js"></script>
-    <script src="/js/work.js"></script>
-    <script src="/js/scroll.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://assets.codepen.io/4027472/three.min.js"></script>
-    <script src="https://assets.codepen.io/4027472/OrbitControls.js"></script>
-    <script src="https://assets.codepen.io/4027472/GLTFLoader.js"></script>
+
 </body>
 
 </html>
