@@ -11,6 +11,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 </head>
 
@@ -24,31 +26,34 @@
             <a class="navbar-brand" href="#">
                 <img src="images/logo.svg" alt="logo" />
             </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
+    
+            <div class="d-flex justify-content-center order-lg-2">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-
-            <div class="menu-open">
-                <span class="sub-menu" id="sub-menu">Menu</span>
+    
+            <div class="d-flex order-lg-3">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="menu-open ms-3">
+                    <span class="sub-menu" id="sub-menu">Menu</span>
+                </div>
             </div>
         </div>
     </nav>
@@ -77,64 +82,56 @@
 
     <section class="video-section">
         <div class="video-section-inner">
-            <video autoplay muted loop playsinline>
+            <video id="myVideo" autoplay muted loop playsinline>
                 <source src="video/s7_video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
+            <button id="soundButton" class="sound-btn"><svg id="Layer_1" enable-background="new 0 0 512 512" height="24" viewBox="0 0 512 512" width="24" xmlns="http://www.w3.org/2000/svg"><g><path d="m470.014 256.001 37.593-37.594c5.858-5.857 5.858-15.355 0-21.213-5.857-5.857-15.355-5.857-21.213 0l-37.593 37.594-37.594-37.594c-5.857-5.858-15.354-5.858-21.213 0-5.857 5.857-5.857 15.355 0 21.213l37.594 37.594-37.594 37.594c-5.857 5.857-5.857 15.355 0 21.213 2.929 2.929 6.768 4.394 10.606 4.394s7.678-1.465 10.606-4.394l37.594-37.594 37.593 37.594c2.929 2.93 6.767 4.394 10.606 4.394 3.838 0 7.678-1.465 10.606-4.394 5.858-5.857 5.858-15.355 0-21.213z"/><path d="m319.027 16.548c-8 0-16.221 2.775-24.434 8.251l-136.061 90.706v280.99l136.062 90.707c8.212 5.474 16.432 8.249 24.432 8.25h.003c9.882 0 18.574-4.299 24.478-12.104 5.12-6.771 7.827-15.939 7.827-26.513v-401.669c0-26.678-16.227-38.618-32.307-38.618z"/><path d="m0 183.701v144.6c0 30.419 24.748 55.166 55.167 55.166h73.366v-254.934h-73.366c-30.419 0-55.167 24.748-55.167 55.168z"/></g></svg></button>
         </div>
     </section>
+
+    
 
     <section class="center-content-section">
         <h2>We Create Culture. It Moves Everything We Do.</h2>
     </section>
 
     <section class="logo-section">
-        <!-- <div class="video-sections">
-            <video class="elementor-background-video-hosted" autoplay="" muted="" playsinline="" loop=""
-                src="https://s7.webaesthetics.tech/wp-content/uploads/2025/04/67f51cbbbbf6154e3730c36515b512d0.mp4"
-                style="width: 1265px; height: 100vh;">
-            </video>
-        </div> -->
-
         <div class="content-section">
             <div class="hdr-section">
                 <h2>Divisions of S7</h2>
             </div>
-
+    
             <div class="container">
+                <!-- First Row -->
                 <div class="inner-section">
                     <div class="inner-logo-view">
                         <div class="logo-view">
-                            <img fetchpriority="high" decoding="async" src="/images/division/1.png" alt="">
+                            <img fetchpriority="high" decoding="async" src="/images/division/1.png" alt="" width="216" height="61">
                         </div>
-
                         <div class="logo-view">
-                            <img fetchpriority="high" decoding="async" src="/images/division/2.png" alt="">
+                            <img fetchpriority="high" decoding="async" src="/images/division/2.png" alt="" width="216" height="61">
                         </div>
-
                         <div class="logo-view">
-                            <img fetchpriority="high" decoding="async" src="/images/division/3.png" alt="">
+                            <img fetchpriority="high" decoding="async" src="/images/division/3.png" alt="" width="216" height="61">
                         </div>
-
                         <div class="logo-view">
-                            <img fetchpriority="high" decoding="async" src="/images/division/4.png" alt="">
+                            <img fetchpriority="high" decoding="async" src="/images/division/4.png" alt="" width="216" height="61">
                         </div>
                     </div>
                 </div>
-
-
+    
+                <!-- Second Row -->
                 <div class="inner-section inner-section-sub-align">
                     <div class="inner-logo-view">
                         <div class="logo-view">
-                            <img fetchpriority="high" decoding="async" src="/images/division/5.png" alt="">
+                            <img fetchpriority="high" decoding="async" src="/images/division/5 (1) (1).png" alt="" width="216" height="61">
                         </div>
-
                         <div class="logo-view">
-                            <img fetchpriority="high" decoding="async" src="/images/division/6.png" alt="">
+                            <img fetchpriority="high" decoding="async" src="/images/division/1 (2) (1).png" alt="" width="216" height="61">
                         </div>
-
                         <div class="logo-view">
-                            <img fetchpriority="high" decoding="async" src="/images/division/7.png" alt="">
+                            <img fetchpriority="high" decoding="async" src="/images/division/7.png" alt="" width="216" height="61">
                         </div>
                     </div>
                 </div>
@@ -142,57 +139,60 @@
         </div>
     </section>
 
+
+    
     <section class="our-services">
         <div class="our-services-hdr">
             <h2>Our Services</h2>
         </div>
-
+    
         <div class="our-service-inner">
+            <!-- Service Items (6 total) -->
             <div class="our-service-item">
-                <img src="/images/our-services/1.png" />
+                <img src="/images/our-services/1.png" alt="Culture & Experience">
                 <div class="our-service-content">
                     <h2>CULTURE & <br>EXPERIENCE</h2>
-                    <img src="images/our-services/logo/1.png" class="img-1" />
+                    <img src="images/our-services/logo/1.png" class="service-logo" />
                 </div>
             </div>
-
+    
             <div class="our-service-item">
-                <img src="/images/our-services/2.png" />
+                <img src="/images/our-services/2.png" alt="Sports Facility Management">
                 <div class="our-service-content">
-                    <h2>SPORTS FACULITY MANAGEMENT</h2>
-                    <img src="images/our-services/logo/2.png" class="img-2" />
+                    <h2>SPORTS FACILITY MANAGEMENT</h2>
+                    <img src="images/our-services/logo/2.png" class="service-logo" />
                 </div>
             </div>
-
+    
             <div class="our-service-item">
-                <img src="/images/our-services/3.png" />
+                <img src="/images/our-services/3.png" alt="Production House">
                 <div class="our-service-content">
-                    <img src="images/our-services/logo/3.png" class="img-3" />
-                    <h2>PRODCUTION HOUSE</h2>
+                    <img src="images/our-services/logo/3.png" class="service-logo" />
+                    <h2>PRODUCTION HOUSE</h2>
                 </div>
             </div>
-
+    
             <div class="our-service-item">
-                <img src="/images/our-services/4.png" />
+                <img src="/images/our-services/4.png" alt="Play">
                 <div class="our-service-content">
                     <h2>PLAY</h2>
-                    <img src="images/our-services/logo/4.png" class="img-4" />
+                    <img src="images/our-services/logo/4.png" class="service-logo" />
                 </div>
             </div>
-
+    
             <div class="our-service-item">
-                <img src="/images/our-services/5.png" />
+                <img src="/images/our-services/5.png" alt="Active">
                 <div class="our-service-content">
                     <h2>ACTIVE</h2>
-                    <img src="images/our-services/logo/5.png" class="img-5" />
+                    <img src="images/our-services/logo/5.png" class="service-logo" />
                 </div>
             </div>
-
+    
             <div class="our-service-item">
-                <img src="/images/our-services/6.png" />
+                <img src="/images/our-services/6.png" alt="Lifestyle">
                 <div class="our-service-content">
                     <h2>LIFESTYLE</h2>
-                    <img src="images/our-services/logo/6.png" class="img-6" />
+                    <img src="images/our-services/logo/6.png" class="service-logo" />
                 </div>
             </div>
         </div>
@@ -267,13 +267,12 @@
 
     <section class="content-section-scroll">
         <div class="content-text-view" id="textToAnimate">
-            Our work is a reflection of our passion for culture and innovation. With deep expertise across
-            sustainability,
-            sports, and space, we create experiences that bring&nbsp; people together, ignite change, and shape the
-            future.
+            Our work is a reflection of our passion for <span class="nowrap">culture and innovation</span>. 
+            With deep expertise across <span class="nowrap">sustainability, sports, and space</span>, 
+            we create experiences that <span class="nowrap">bring people together</span>, 
+            <span class="nowrap">ignite change</span>, and <span class="nowrap">shape the future</span>.
         </div>
     </section>
-
     <!-- <section class="section">
         <div class="circle-wrapper">
             <div class="circle-container">
@@ -561,6 +560,10 @@
     <script src="https://assets.codepen.io/4027472/three.min.js"></script>
     <script src="https://assets.codepen.io/4027472/OrbitControls.js"></script>
     <script src="https://assets.codepen.io/4027472/GLTFLoader.js"></script>
+
+    <script>
+        
+    </script>
 </body>
 
 </html>
