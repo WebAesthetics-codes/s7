@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Three.js GLTF Draco Example</title>
+    <title>3D image</title>
     <style>
       body,
       html {
@@ -11,65 +11,43 @@
         overflow: hidden;
         height: 100%;
       }
-
+      .banner {
+        width: 100vw;
+        height: 100vh;
+        background: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .content-view h2 {
+        color: white;
+        font-size: 150px;
+      }
       canvas {
+        position: absolute;
+        /* background: black; */
+        z-index: 100;
+        inset: 0;
         display: block;
       }
     </style>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/custom-fonts.css" />
   </head>
 
   <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/loaders/GLTFLoader.js"></script>
-    <script src="/js/DRACOLoader.js"></script>
+    <section>
+      <img src="./images/text-image.png" alt="Text image" />
+    </section>
 
-    <script>
-      // Create the scene, camera, and renderer
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(
-        75,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        1000,
-      );
-      const renderer = new THREE.WebGLRenderer();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      document.body.appendChild(renderer.domElement);
-
-      // Add a basic light source
-      const light = new THREE.AmbientLight(0x404040); // Ambient light
-      scene.add(light);
-
-      // Set up the DRACOLoader and GLTFLoader
-      const dracoLoader = new THREE.DRACOLoader();
-      dracoLoader.setDecoderPath(
-        "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/libs/draco/",
-      ); // URL for Draco decoder
-
-      const gltfLoader = new THREE.GLTFLoader();
-      gltfLoader.setDRACOLoader(dracoLoader);
-
-      // Load a Draco-compressed GLTF model
-      gltfLoader.load(
-        "path/to/your/model.glb",
-        (gltf) => {
-          scene.add(gltf.scene);
-          animate();
-        },
-        undefined,
-        (error) => {
-          console.error(error);
-        },
-      );
-
-      // Camera position
-      camera.position.z = 5;
-
-      // Animation loop
-      function animate() {
-        requestAnimationFrame(animate);
-        renderer.render(scene, camera);
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./three/build/three.module.js",
+          "three/addons/": "./three/examples/jsm/"
+        }
       }
     </script>
+    <script type="module" src="./js/3d.js"></script>
   </body>
 </html>
