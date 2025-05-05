@@ -1,66 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Three.js GLTF Draco Example</title>
     <style>
-        body,
-        html {
-            margin: 0;
-            overflow: hidden;
-            height: 100%;
-        }
+      body,
+      html {
+        margin: 0;
+        overflow: hidden;
+        height: 100%;
+      }
 
-        canvas {
-            display: block;
-        }
+      canvas {
+        display: block;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/loaders/GLTFLoader.js"></script>
     <script src="/js/DRACOLoader.js"></script>
 
     <script>
-        // Create the scene, camera, and renderer
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
+      // Create the scene, camera, and renderer
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000,
+      );
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
 
-        // Add a basic light source
-        const light = new THREE.AmbientLight(0x404040);  // Ambient light
-        scene.add(light);
+      // Add a basic light source
+      const light = new THREE.AmbientLight(0x404040); // Ambient light
+      scene.add(light);
 
-        // Set up the DRACOLoader and GLTFLoader
-        const dracoLoader = new THREE.DRACOLoader();
-        dracoLoader.setDecoderPath('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/libs/draco/'); // URL for Draco decoder
+      // Set up the DRACOLoader and GLTFLoader
+      const dracoLoader = new THREE.DRACOLoader();
+      dracoLoader.setDecoderPath(
+        "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/libs/draco/",
+      ); // URL for Draco decoder
 
-        const gltfLoader = new THREE.GLTFLoader();
-        gltfLoader.setDRACOLoader(dracoLoader);
+      const gltfLoader = new THREE.GLTFLoader();
+      gltfLoader.setDRACOLoader(dracoLoader);
 
-        // Load a Draco-compressed GLTF model
-        gltfLoader.load('path/to/your/model.glb', (gltf) => {
-            scene.add(gltf.scene);
-            animate();
-        }, undefined, (error) => {
-            console.error(error);
-        });
+      // Load a Draco-compressed GLTF model
+      gltfLoader.load(
+        "path/to/your/model.glb",
+        (gltf) => {
+          scene.add(gltf.scene);
+          animate();
+        },
+        undefined,
+        (error) => {
+          console.error(error);
+        },
+      );
 
-        // Camera position
-        camera.position.z = 5;
+      // Camera position
+      camera.position.z = 5;
 
-        // Animation loop
-        function animate() {
-            requestAnimationFrame(animate);
-            renderer.render(scene, camera);
-        }
-
+      // Animation loop
+      function animate() {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+      }
     </script>
-</body>
-
+  </body>
 </html>
