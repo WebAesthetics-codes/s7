@@ -190,6 +190,9 @@ body {
   position: relative;
   box-sizing: border-box;
 }
+.video-section {
+  padding-bottom: 100px;
+}
 .home-view .video-section .video-section-inner {
   position: absolute;
   bottom: 0;
@@ -662,6 +665,9 @@ body {
 .home-view .items-section .items-section-view {
   width: 100%;
   height: 100vh !important;
+}
+.items-section-view {
+  padding-bottom:100px ;
 }
 .home-view .items-section .items-section-view .items-section-inner {
   position: absolute;

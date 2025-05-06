@@ -24,7 +24,8 @@ $(document).ready(function () {
       start: 'top top',
       end: `+=${letters.length * 20}`,
       scrub: true,
-      pin: true
+      pin: true,
+      pinspacing:true,
     }
   })
 
