@@ -26,7 +26,7 @@ $(document).ready(function () {
   gsap.to(circle, {
     scrollTrigger: {
       trigger: ".circle-section",
-      start: "top+=400 bottom", // Delayed start
+      start: "top+=300 bottom", // Delayed start
       end: "center center+=10%",
       scrub: 5,
       onEnter: () => document.body.classList.add("text-black"),

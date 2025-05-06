@@ -190,9 +190,6 @@ body {
   position: relative;
   box-sizing: border-box;
 }
-.video-section {
-  padding-bottom: 100px;
-}
 .home-view .video-section .video-section-inner {
   position: absolute;
   bottom: 0;
@@ -316,8 +313,19 @@ body {
   align-items: center;
   justify-content: center;
 }
+.inner-logo-view-mobile{
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 600px) {
+  .inner-logo-view {
+    flex-direction: column;
+  }}
 @media (max-width: 1000px) {
-  .home-view .logo-section .content-section .inner-section .inner-logo-view {
+  .home-view .logo-section .content-section .inner-section {
     flex-direction: column;
   }
 }

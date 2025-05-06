@@ -72,7 +72,7 @@ $(document).ready(function () {
     scrollTrigger: {
       trigger: '.items-section-view-four',
       start: 'top center',
-      end: 'bottom top',
+      end: window.innerWidth <= 768 ?'bottom center+=70':'bottom top',
       scrub: true,
       pin: true,
       markers: false
