@@ -215,7 +215,9 @@ body {
   padding: 0 5%;
   box-sizing: border-box;
 }
-
+.content-section-scroll {
+  padding-bottom: 100vh;
+}
 /* Text Container */
 .home-view .content-section-scroll .content-text-view {
   max-width: min(1085px, 90%); 
@@ -1436,8 +1438,112 @@ body {
   }
 }
 
+/* circle animation styling */
 
+.who-we-are {
+  background-color: black;
+  position: relative;
+}
 
+.whowe-wrapper {
+  overflow-x: auto; /* enables horizontal scrolling on small screens */
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+#whowe-wrapper {
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+#circle {
+  position: absolute;
+  transform-origin: center;
+  left: 50%;
+  top: 15%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.circle-section {
+  position: relative;
+  overflow: hidden;
+}
+.needscrool {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.who-we-are-footer {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.needscrool h2 {
+  font-size: 450px;
+  font-weight: 900;
+  color: #000000;
+  flex-shrink: 0;
+  padding-right: 0.3em;
+  padding-left: 0.3em;
+}
+
+@media (max-width: 768px) {
+  .needscrool {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .needscrool h2 {
+    font-size: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .needscrool h2 {
+    font-size: 150px;
+  }
+  .who-we-are-footer {
+    font-size: 12px;
+    width: fit-content;
+  }
+}
+
+@media (min-width: 768px) {
+  #circle {
+    width: 8rem;
+    height: 8rem;
+  }
+}
+
+.text-responsive {
+  font-size: 20vw;
+  line-height: 1;
+  font-weight: 700;
+  z-index: 0;
+}
+
+@media (min-width: 768px) {
+  .who-we-are-footer {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .who-we-are-footer.text-left {
+    text-align: left !important;
+  }
+}
 
 /* sound Button */
 
