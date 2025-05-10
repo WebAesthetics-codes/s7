@@ -2,684 +2,487 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="" />
-    <title>S7</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/custom-fonts.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Add Font Awesome for icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>S7 Group</title>
+    <link href="./assets/icons/style.css" rel="stylesheet" />
+    <link href="./assets/css/style.css" rel="stylesheet" />
   </head>
-
-  <body class="home-view scroll-container">
-    <div class="loader" id="loader">
-      <h2 id="loadingText"></h2>
-    </div>
-
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
+  <body>
+    <header class="header">
       <div class="container">
-        <a class="navbar-brand" href="#">
-          <img src="images/logo.svg" alt="logo" />
-        </a>
+        <nav class="nav">
+          <div class="nav__brand">
+            <img src="./assets/images/logo.svg" alt="Logo" />
+          </div>
+          <button class="nav-toggler" id="navToggler">
+            <i class="icon-menu"></i>
+          </button>
+          <div class="nav-dropdown" id="navDropDown">
+            <div class="nav-menu__wrapper">
+              <i class="icon-close-btn" id="navCloseBtn"></i>
+              <ul class="nav__menu">
+                <li class="nav__item">
+                  <a href="#">Home</a>
+                </li>
+                <li class="nav__item">
+                  <a href="#">S7 Highlights</a>
+                </li>
+                <li class="nav__item">
+                  <a href="#">About Us</a>
+                </li>
+                <li class="nav__item">
+                  <a href="#">Contact</a>
+                </li>
+              </ul>
+              <!-- <div class="nav__cta"> -->
+              <!--   <a href="#"> Contact </a> -->
+              <!-- </div> -->
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
 
-        <div class="d-flex justify-content-center order-lg-2">
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+    <main>
+      <section class="s7-banner h-screen" id="s7Banner">
+        <div class="container">
+          <h1 class="s7-banner__title">We Create Our Culture</h1>
+        </div>
+      </section>
+
+      <div class="section-wrapper">
+        <!-- video section -->
+        <section class="h-screen">
+          <div class="container videoSec">
+            <video
+              autoplay
+              playsinline
+              loop
+              muted
+              id="mainVideo"
+              src=""
+            ></video>
+          </div>
+        </section>
+
+        <!-- We create culture -->
+        <section class="solo-title h-screen flex-center bg-black">
+          <div class="container">
+            <h2>We Create Culture. It Moves Everything We Do.</h2>
+          </div>
+        </section>
+
+        <!-- Division of s7 -->
+        <section class="division-s7 h-screen flex-center bg-black">
+          <div class="container">
+            <h2 class="title">Division of S7</h2>
+            <div class="division-s7__wrapper">
+              <div class="item">
+                <img
+                  src="./assets/images/division/s7-corporate.png"
+                  alt="S7 corporate culture and experience"
+                />
+              </div>
+              <div class="item">
+                <img
+                  src="./assets/images/division/s7-sports-facility.png"
+                  alt="S7 sports facility"
+                />
+              </div>
+              <div class="item">
+                <img
+                  src="./assets/images/division/s7-production-house.png"
+                  alt="S7 production house"
+                />
+              </div>
+              <div class="item">
+                <img
+                  src="./assets/images/division/s7-active.png"
+                  alt="S7 Active"
+                />
+              </div>
+              <div class="item">
+                <img src="./assets/images/division/s7-play.png" alt="S7 Play" />
+              </div>
+              <div class="item">
+                <img src="./assets/images/division/s7-edu.png" alt="S7 Edu" />
+              </div>
+              <div class="item">
+                <img
+                  src="./assets/images/division/s7-lifestyle.png"
+                  alt="S7 corporate culture and experience"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Our services -->
+        <section class="our-services bg-black">
+          <div class="container">
+            <h2 class="title">Our Services</h2>
+            <div class="our-services__wrapper">
+              <!-- service item -->
+              <div class="service-item">
+                <img
+                  src="./assets/images/our-services/service-culture.png"
+                  alt="Culture and Experience"
+                />
+                <div class="content">
+                  <h3 style="--font-size: var(--txt-6xl)">
+                    <span>Culture &</span>
+                    <span>Experience</span>
+                  </h3>
+                  <img
+                    class="icon"
+                    style="--ps-inset: 45% 0 0 60%"
+                    src="./assets/images/our-services/logo/culture-icon.png"
+                    alt="Culture Icon"
+                  />
+                </div>
+              </div>
+
+              <div class="service-item">
+                <img
+                  src="./assets/images/our-services/service-sports-facility.png"
+                  alt="Sports Facility Management"
+                />
+                <div class="content">
+                  <h3 style="--font-size: var(--txt-5xl)">
+                    <span>sports Facility</span>
+                    <span>Management</span>
+                  </h3>
+                  <img
+                    class="icon"
+                    style="--ps-inset: 45% 0 0 60%"
+                    src="./assets/images/our-services/logo/leasing-icon.png"
+                    alt="Sports Facility Icon"
+                  />
+                </div>
+              </div>
+              <div class="service-item">
+                <img
+                  src="./assets/images/our-services/service-product-house.png"
+                  alt="Production House"
+                />
+                <div class="content">
+                  <h3 style="--font-size: var(--txt-5xl)">
+                    <span>Production</span>
+                    <span>House</span>
+                  </h3>
+                  <img
+                    class="icon"
+                    style="--ps-inset: 45% 0 0 20%"
+                    src="./assets/images/our-services/logo/media-icon.png"
+                    alt="Production House"
+                  />
+                </div>
+              </div>
+              <div class="service-item">
+                <img
+                  src="./assets/images/our-services/service-play.png"
+                  alt="Service Play"
+                />
+                <div class="content">
+                  <h3 style="--font-size: var(--txt-5xl)">
+                    <span>Play</span>
+                  </h3>
+                  <img
+                    class="icon"
+                    style="--ps-inset: 55% 0 0 35%"
+                    src="./assets/images/our-services/logo/community-icon.png"
+                    alt="Community icon"
+                  />
+                </div>
+              </div>
+              <div class="service-item">
+                <img
+                  src="./assets/images/our-services/service-active.png"
+                  alt="Service Activity"
+                />
+                <div class="content">
+                  <h3 style="--font-size: var(--txt-5xl)">
+                    <span>Active</span>
+                  </h3>
+                  <img
+                    class="icon"
+                    style="--ps-inset: 55% 0 0 32%"
+                    src="./assets/images/our-services/logo/active-icon.png"
+                    alt="Active Icon"
+                  />
+                </div>
+              </div>
+              <div class="service-item">
+                <img
+                  src="./assets/images/our-services/service-life-style.png"
+                  alt="Service Lifestyle"
+                />
+                <div class="content">
+                  <h3 style="--font-size: var(--txt-5xl)">
+                    <span>Lifestyle</span>
+                  </h3>
+                  <img
+                    class="icon"
+                    style="--ps-inset: 30% 0 0 55%"
+                    src="./assets/images/our-services/logo/lifestyle-icon.png"
+                    alt="Lifestyle Icon"
+                  />
+                </div>
+              </div>
+              <div class="service-item">
+                <img
+                  src="./assets/images/our-services/service-education.png"
+                  alt="Service Education"
+                />
+                <div class="content">
+                  <h3 style="--font-size: var(--txt-5xl)">
+                    <span>Education</span>
+                  </h3>
+                  <img
+                    class="icon"
+                    style="--ps-inset: 30% 20% 0 auto"
+                    src="./assets/images/our-services/logo/edu-icon.png"
+                    alt="Education icon"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- our works -->
+        <section class="our-works bg-black h-screen" id="ourWorks">
+          <div class="container">
+            <div class="our-works__title">
+              <h2 id="ourWorkTitle">Works</h2>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-black our-works-img">
+          <div class="container">
+            <div class="our-works-img__wrapper">
+              <div>
+                <img src="./assets/images/works/work-1.png" alt="work" />
+              </div>
+              <div>
+                <img src="./assets/images/works/work-3.png" alt="work" />
+              </div>
+              <div>
+                <img src="./assets/images/works/work-4.png" alt="work" />
+              </div>
+              <div>
+                <img src="./assets/images/works/work-2.png" alt="work" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="scroller h-screen flex-center bg-black">
+          <div class="container">
+            <h3>
+              Our work is a reflection of our passion for culture and
+              innovation. With deep expertise across sustainability, sports, and
+              space, we create experiences that bring people together, ignite
+              change, and shape the future.
+            </h3>
+            <a href="#" class="btn-secondary">View More</a>
+          </div>
+        </section>
+
+        <!-- Who We are -->
+        <section class="who-we-are bg-black h-screen">
+          <canvas id="myCanvas"></canvas>
+          <div class="who-we-are__title">
+            <h2 class="who-we-are">Who We Are</h2>
+          </div>
+          <ul>
+            <li>
+              <img
+                src="./assets/images/who-we-are/img-01.png"
+                alt="who we are"
+              />
+            </li>
+            <li>
+              <img
+                src="./assets/images/who-we-are/img-02.png"
+                alt="who we are"
+              />
+            </li>
+            <li>
+              <img
+                src="./assets/images/who-we-are/img-03.png"
+                alt="who we are"
+              />
+            </li>
+            <li>
+              <img
+                src="./assets/images/who-we-are/img-04.png"
+                alt="who we are"
+              />
+            </li>
+            <li>
+              <img
+                src="./assets/images/who-we-are/img-05.png"
+                alt="who we are"
+              />
+            </li>
+            <li>
+              <img
+                src="./assets/images/who-we-are/img-06.png"
+                alt="who we are"
+              />
+            </li>
+            <li>
+              <img
+                src="./assets/images/who-we-are/img-07.png"
+                alt="who we are"
+              />
+            </li>
+            <li>
+              <img
+                src="./assets/images/who-we-are/img-08.png"
+                alt="who we are"
+              />
+            </li>
+          </ul>
+        </section>
+
+        <!-- Our client -->
+        <section class="our-clients h-screen flex-center bg-black">
+          <div class="container">
+            <h2 class="title">Our Clients</h2>
+            <ul class="our-client__wrapper">
+              <li>
+                <img
+                  src="./assets/images/clients/client-dp-world.png"
+                  alt="DP world"
+                />
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Services</a>
+              <li>
+                <img
+                  src="./assets/images/clients/client-emirates-nature.png"
+                  alt="Emirates Nature"
+                />
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
+              <li>
+                <img
+                  src="./assets/images/clients/client-majid-al-futam.png"
+                  alt="Majid Al Futtam"
+                />
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+              <li>
+                <img
+                  src="./assets/images/clients/client-emirates-nbd.png"
+                  alt="Emirates NBD"
+                />
+              </li>
+              <li>
+                <img
+                  src="./assets/images/clients/client-D.png"
+                  alt="Dubai Duty free"
+                />
+              </li>
+              <li>
+                <img
+                  src="./assets/images/clients/client-mubadala.png"
+                  alt="Mubadala"
+                />
+              </li>
+              <li>
+                <img
+                  src="./assets/images/clients/client-group.png"
+                  alt="Alserkal Group"
+                />
+              </li>
+              <li>
+                <img
+                  src="./assets/images/clients/client-dubai-health-authority.png"
+                  alt="Dubai Health Authority"
+                />
+              </li>
+              <li>
+                <img src="./assets/images/clients/client-wmg.png" alt="WMG" />
+              </li>
+              <li>
+                <img
+                  src="./assets/images/clients/client-mediclinic.png"
+                  alt="Mediclinic"
+                />
+              </li>
+              <li>
+                <img src="./assets/images/clients/client-awr.png" alt="AWR" />
+              </li>
+              <li>
+                <img
+                  src="./assets/images/clients/client-red-bull.png"
+                  alt="Red bull"
+                />
               </li>
             </ul>
           </div>
-        </div>
+        </section>
 
-        <div class="d-flex order-lg-3">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="menu-open ms-3">
-            <span class="sub-menu" id="sub-menu">Menu</span>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <div class="menu-scroll-view" id="menu-scroll-view">
-      <div class="menu-scroll-view-inner">
-        <a href="#">Home</a>
-      </div>
-      <div class="menu-scroll-view-inner">
-        <a href="#">Services</a>
-      </div>
-      <div class="menu-scroll-view-inner">
-        <a href="#">About Us</a>
-      </div>
-      <div class="menu-scroll-view-inner">
-        <a href="#">Contact</a>
-      </div>
-    </div>
-
-    <section class="banner position-fixed" id="banner-section">
-      <div class="content-view">
-        <h2>We Create Culture</h2>
-        <div id="animation-container"></div>
-      </div>
-    </section>
-
-    <section class="video-section">
-      <div class="video-section-inner">
-        <video id="myVideo" autoplay muted loop playsinline>
-          <source src="video/s7_video.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <button id="soundButton" class="sound-btn">
-          <svg
-            id="Layer_1"
-            enable-background="new 0 0 512 512"
-            height="24"
-            viewBox="0 0 512 512"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g>
-              <path
-                d="m470.014 256.001 37.593-37.594c5.858-5.857 5.858-15.355 0-21.213-5.857-5.857-15.355-5.857-21.213 0l-37.593 37.594-37.594-37.594c-5.857-5.858-15.354-5.858-21.213 0-5.857 5.857-5.857 15.355 0 21.213l37.594 37.594-37.594 37.594c-5.857 5.857-5.857 15.355 0 21.213 2.929 2.929 6.768 4.394 10.606 4.394s7.678-1.465 10.606-4.394l37.594-37.594 37.593 37.594c2.929 2.93 6.767 4.394 10.606 4.394 3.838 0 7.678-1.465 10.606-4.394 5.858-5.857 5.858-15.355 0-21.213z"
-              />
-              <path
-                d="m319.027 16.548c-8 0-16.221 2.775-24.434 8.251l-136.061 90.706v280.99l136.062 90.707c8.212 5.474 16.432 8.249 24.432 8.25h.003c9.882 0 18.574-4.299 24.478-12.104 5.12-6.771 7.827-15.939 7.827-26.513v-401.669c0-26.678-16.227-38.618-32.307-38.618z"
-              />
-              <path
-                d="m0 183.701v144.6c0 30.419 24.748 55.166 55.167 55.166h73.366v-254.934h-73.366c-30.419 0-55.167 24.748-55.167 55.168z"
-              />
-            </g>
-          </svg>
-        </button>
-      </div>
-    </section>
-
-    <section class="center-content-section">
-      <h2>We Create Culture. It Moves Everything We Do.</h2>
-    </section>
-
-    <section class="logo-section">
-      <div class="content-section">
-        <div class="hdr-section">
-          <h2>Divisions of S7</h2>
-        </div>
-
-        <div class="container">
-          <!-- First Row -->
-          <div class="inner-section">
-            <div class="inner-logo-view">
-              <div class="logo-view">
-                <img
-                  fetchpriority="high"
-                  decoding="async"
-                  src="/images/division/1.png"
-                  alt=""
-                  width="216"
-                  height="61"
-                />
-              </div>
-              <div class="logo-view">
-                <img
-                  fetchpriority="high"
-                  decoding="async"
-                  src="/images/division/2.png"
-                  alt=""
-                  width="216"
-                  height="61"
-                />
-              </div>
-              <div class="logo-view">
-                <img
-                  fetchpriority="high"
-                  decoding="async"
-                  src="/images/division/3.png"
-                  alt=""
-                  width="216"
-                  height="61"
-                />
-              </div>
-              <div class="logo-view">
-                <img
-                  fetchpriority="high"
-                  decoding="async"
-                  src="/images/division/4.png"
-                  alt=""
-                  width="216"
-                  height="61"
-                />
-              </div>
+        <!-- sister companies -->
+        <section class="sister-companies flex-center h-screen bg-black">
+          <div class="container flex-center">
+            <h2 class="title">Sister Companies</h2>
+            <div class="sister-companies__container">
+              <ul class="sister-companies__wrapper">
+                <li class="company">
+                  <img
+                    src="./assets/images/sister-company/multiverse-media.png"
+                    alt="Multiverse Media"
+                  />
+                </li>
+                <li class="company">
+                  <img
+                    src="./assets/images/sister-company/chaos-company.png"
+                    alt="Chaos company"
+                  />
+                </li>
+                <li class="company">
+                  <img
+                    src="./assets/images/sister-company/black-parade.png"
+                    alt="Black Parade"
+                  />
+                </li>
+              </ul>
+              <ul class="sister-companies__wrapper">
+                <li class="company">
+                  <img
+                    src="./assets/images/sister-company/martial-arts.png"
+                    alt="Martial Arts"
+                  />
+                </li>
+                <li class="company">
+                  <img
+                    src="./assets/images/sister-company/s7-camps.png"
+                    alt="S7 Camps"
+                  />
+                </li>
+              </ul>
             </div>
           </div>
+        </section>
 
-          <!-- Second Row -->
-          <div class="inner-section inner-section-sub-align">
-            <div class="inner-logo-view">
-              <div class="logo-view">
-                <img
-                  fetchpriority="high"
-                  decoding="async"
-                  src="/images/division/5 (1) (1).png"
-                  alt=""
-                  width="216"
-                  height="61"
-                />
+        <section class="blog flex-center bg-black">
+          <div class="container">
+            <article class="blog-loop">
+              <img src="./assets/images/blog/blog-bg-1.png" alt="blog image" />
+              <div class="blog-loop__content">
+                <h5>Dp World</h5>
+                <p>
+                  S7 flawlessly executed Dubai’s largest corporate cricket
+                  tournament with exceptional professionalism. Highly
+                  recommended for organizing premier UAE sports events.
+                </p>
               </div>
-              <div class="logo-view">
-                <img
-                  fetchpriority="high"
-                  decoding="async"
-                  src="/images/division/1 (2) (1).png"
-                  alt=""
-                  width="216"
-                  height="61"
-                />
-              </div>
-              <div class="logo-view">
-                <img
-                  fetchpriority="high"
-                  decoding="async"
-                  src="/images/division/7.png"
-                  alt=""
-                  width="216"
-                  height="61"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="our-services">
-      <div class="our-services-hdr pb-6">
-        <h2>Our Services</h2>
-      </div>
-
-      <!-- Full Width Service Item with proper margins -->
-      <div class="full-width-service-wrapper">
-        
-        <div class="our-services-hdr mb-5">
-            <h2>Our Services</h2>
-        </div>
-
-
-        <!-- Full Width Service Item with proper margins -->
-    <div class="full-width-service-wrapper">
-        <div class="our-service-item full-width-service">
-          <img src="/images/our-services/kk.png" alt="Premium Service" />
-          <div class="our-service-content">
-            <h2>PREMIUM SERVICE</h2>
-            <img
-              src="images/our-services/Component 460.png"
-              class="service-logo img-fullwidth"
-            />
-          </div>
-        </div>
-      </div>
-
-      <div class="our-service-inner">
-        <!-- Service Items (6 total) -->
-        <div class="our-service-item">
-          <img
-            src="/images/our-services/1911005_N56-1920x1080.png"
-            alt="Culture & Experience"
-          />
-          <div class="our-service-content">
-            <h2>Sports Facility <br />Management</h2>
-            <img
-              src="images/our-services/logo/Component 461.png"
-              class="service-logo img-1"
-            />
-          </div>
-        </div>
-
-        <div class="our-service-item">
-          <img
-            src="/images/our-services/DSC05550.png"
-            alt="Sports Facility Management"
-          />
-          <div class="our-service-content">
-            <h2>Production <br />House</h2>
-            <img
-              src="images/our-services/logo/Component 462.png"
-              class="service-logo img-2"
-            />
-          </div>
-        </div>
-
-        <div class="our-service-item">
-          <img
-            src="/images/our-services/DSC02793 (1).png"
-            alt="Production House"
-          />
-          <div class="our-service-content">
-            <img
-              src="images/our-services/logo/Component 463.png"
-              class="service-logo img-3"
-            />
-            <h2>PLAY</h2>
-          </div>
-        </div>
-
-        <div class="our-service-item">
-          <img src="/images/our-services/pexels-rdne-8035135.png" alt="Play" />
-          <div class="our-service-content">
-            <h2>Active</h2>
-            <img
-              src="images/our-services/logo/Component 464.png"
-              class="service-logo img-4"
-            />
-          </div>
-        </div>
-
-        <div class="our-service-item">
-          <img
-            src="/images/our-services/84973e108316555.5fbb759d54ce6.png"
-            alt="Active"
-          />
-          <div class="our-service-content">
-            <h2>Lifestyle</h2>
-            <img
-              src="images/our-services/logo/Component 465.png"
-              class="service-logo img-5"
-            />
-          </div>
-        </div>
-
-        <div class="our-service-item">
-          <img src="/images/our-services/DSC04807.png" alt="Lifestyle" />
-          <div class="our-service-content">
-            <h2>Education</h2>
-            <img
-              src="images/our-services/logo/Component 466.png"
-              class="service-logo img-6"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="work-section">
-      <div style="width: 100%; position: relative; background-color: #000">
-        <div
-          style="width: 100%; height: 100vh; position: absolute; color: #fff"
-        >
-          <h2 class="hdr">WORK</h2>
-        </div>
-
-        <div style="width: 100%; height: 100%">
-          <div class="scroll-item">
-            <section class="items-section">
-              <div class="items-section-view">
-                <div class="items-section-inner">
-                  <img src="images/items/1.png" />
-                  <p style="display: none">
-                    <span>Demo Title:</span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                </div>
-              </div>
-            </section>
-          </div>
-
-          <div class="scroll-item">
-            <section class="items-section-second">
-              <div class="items-section-view-second">
-                <div class="items-section-inner-second">
-                  <img src="images/items/2.png" />
-                  <p style="display: none">
-                    <span>Demo Title:</span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                </div>
-              </div>
-            </section>
-          </div>
-
-          <div class="scroll-item">
-            <section class="items-section-third">
-              <div class="items-section-view-third">
-                <div class="items-section-inner-third">
-                  <img src="images/items/3.png" />
-                  <p style="display: none">
-                    <span>Demo Title:</span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                </div>
-              </div>
-            </section>
-          </div>
-
-          <div class="scroll-item">
-            <section class="items-section-four">
-              <div class="items-section-view-four">
-                <div class="items-section-inner-four">
-                  <img src="images/items/4.png" />
-                  <p style="display: none">
-                    <span>Demo Title:</span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                </div>
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="work-section__mob">
-      <div class="container">
-        <div class="work-section__mob-wrapper">
-          <div>
-            <h2 class="hdr">WORK</h2>
-          </div>
-
-          <div class="work-section__mob-images">
-            <div>
-              <img src="images/items/1.png" class="img-fluid" />
-            </div>
-
-            <div>
-              <img src="images/items/2.png" class="img-fluid" />
-            </div>
-
-            <div>
-              <img src="images/items/3.png" class="img-fluid" />
-            </div>
-
-            <div>
-              <img src="images/items/4.png" class="img-fluid" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section-scroll">
-      <div class="content-text-view" id="textToAnimate">
-        Our work is a reflection of our passion for
-        <span class="nowrap">culture and innovation</span>. With deep expertise
-        across <span class="nowrap">sustainability, sports, and space</span>, we
-        create experiences that
-        <span class="nowrap">bring people together</span>,
-        <span class="nowrap">ignite change</span>, and
-        <span class="nowrap">shape the future</span>.
-      </div>
-    </section>
-
-
-
-    <!-- <section
-      class="demo-animation vh-100 d-flex align-items-center justify-content-center"
-    >
-      <h1 class="display-4">Scroll Down</h1>
-    </section> -->
-
-    <section class="who-we-are">
-      <div class="circle-section">
-        <div
-          id="circle"
-          class="rounded-circle bg-white z-0"
-          style="width: 8rem; height: 8rem"
-        ></div>
-        <div class="needscrool" id="whowe-wrapper">
-          <div class="word-group">
-            <!-- Top Image -->
-            <img src="/images/Who_we_are/IMG_1034.png" alt="Top WHO" class="word-img top" />
-
-            <!-- Text -->
-            <h2 class="text-responsive">WHO</h2>
-
-            <!-- Bottom/Side Image -->
-            <img src="/images/Who_we_are/IMG_1029.png" alt="Bottom WHO" class="word-img bottom" />
-          </div>
-
-          <!-- WE -->
-          <div class="word-group">
-            <!-- Top Image -->
-            <img src="/images/Who_we_are/IMG_1027.png" alt="Top WHO" class="word-img top" />
-
-            <!-- Text -->
-            <h2 class="text-responsive">WE</h2>
-
-            <!-- Bottom/Side Image -->
-            <img src="/images/Who_we_are/IMG_1033.png" alt="Bottom WHO" class="word-img bottom" />
-          </div>
-
-          <!-- WE (repeated) -->
-          <div class="word-group">
-            <!-- Top Image -->
-            <img src="/images/Who_we_are/IMG_1026.png" alt="Top WHO" class="word-img top" />
-
-            <!-- Text -->
-            <h2 class="text-responsive">WE</h2>
-
-            <!-- Bottom/Side Image -->
-            <img src="/images/Who_we_are/IMG_1032.png" alt="Bottom WHO" class="word-img bottom" />
-          </div>
-
-          <!-- ARE -->
-          <div class="word-group">
-            <!-- Top Image -->
-            <img src="/images/Who_we_are/IMG_1031.png" alt="Top WHO" class="word-img top" />
-
-            <!-- Text -->
-            <h2 class="text-responsive">ARE</h2>
-            <!-- Bottom/Side Image removed as in original -->
-            <img src="/images/Who_we_are/IMG_1030.png" alt="Bottom WHO" class="word-img bottom" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="vh-100 lightBG d-flex justify-content-center justify-content-md-end align-items-center p-4 p-md-5" style="background-color: #fff;">
-      <div class="d-flex flex-column">
-        <p class="footer text-start text-md-end fs-6 fs-md-5">
-          S7 Group was founded in Dubai, by people who've witnessed the city
-          <br />
-          rise and who are committed to its future. Guided by the legacy of
-          Sheikh <br />
-          Zayed bin Sultan Al Nahyan, and aligned with the vision of his
-          Highness <br />
-          Sheikh Mohamed bin Zayed Al Nahyan and His Highness Sheikh <br />
-          Mohammed bin Rashid Al Maktoum, we work to bring the UAE's <br />
-          ambitions to life. <br />
-          At our core Sustainability, Sports, and Space — the three pillars that
-          <br />
-          define the S in S7. The 7 reflects the elements that drive our purpose
-          <br />
-          and growth. <br />
-          We bring together governments, corporates, and communities, <br />
-          delivering projects that contribute to the nation's future.
-        </p>
-        <div
-          class="footer text-center border border-dark p-2 rounded-3 mt-3 d-flex justify-content-center align-items-end"
-        >
-          Learn more about ->
-        </div>
-      </div>
-    </div>
-
-
-    <section class="our-clients">
-      <div class="container">
-        <div class="our-clients-hdr">
-          <h2>Our CLIENTS</h2>
-        </div>
-
-        <div class="our-clients-img-view">
-          <div class="img-view">
-            <img src="/images/clients/logo-12.png" />
-          </div>
-
-          <div class="img-view img-view-center-view">
-            <img src="/images/clients/logo-11.png" />
-          </div>
-
-          <div class="img-view img-view-center-view">
-            <img src="/images/clients/logo-10.png" />
-          </div>
-
-          <div class="img-view img-view-right-view">
-            <img src="/images/clients/logo-9.png" />
-          </div>
-        </div>
-
-        <div class="our-clients-img-view">
-          <div class="img-view">
-            <img src="/images/clients/logo-8.png" class="img-view-five" />
-          </div>
-
-          <div class="img-view img-view-center-view">
-            <img src="/images/clients/logo-7.png" />
-          </div>
-
-          <div class="img-view img-view-center-view">
-            <img src="/images/clients/logo-6.png" />
-          </div>
-
-          <div class="img-view img-view-right-view">
-            <img src="/images/clients/logo-5.png" />
-          </div>
-        </div>
-
-        <div class="our-clients-img-view">
-          <div class="img-view">
-            <img src="/images/clients/logo-4.png" />
-          </div>
-
-          <div class="img-view img-view-center-view">
-            <img src="/images/clients/logo-3.png" />
-          </div>
-
-          <div class="img-view img-view-center-view">
-            <img src="/images/clients/logo-2.png" />
-          </div>
-
-          <div class="img-view img-view-right-view">
-            <img src="/images/clients/logo-1.png" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="sister-company-section">
-      <div class="container">
-        <div class="sister-company-hdr">
-          <h2>SISTER COMPANIES</h2>
-        </div>
-
-        <div class="sister-company-items-inner">
-          <div class="items">
-            <div class="items-inner">
-              <img src="/images/sister-company/1.png" />
-            </div>
-          </div>
-
-          <div class="items items-two">
-            <div class="items-inner">
-              <img src="/images/sister-company/5.png" />
-            </div>
-          </div>
-
-          <div class="items items-three">
-            <div class="items-inner">
-              <img src="/images/sister-company/4.png" />
-            </div>
-          </div>
-        </div>
-
-        <div class="sister-company-items-inner">
-          <div class="items items-two">
-            <div class="items-inner">
-              <img src="/images/sister-company/3.png" />
-            </div>
-          </div>
-
-          <div class="items items-two">
-            <div class="items-inner">
-              <img src="/images/sister-company/2.png" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="blog-section">
-      <div class="container">
-        <div class="blog-inner">
-          <div class="blog-left">
-            <div style="background-color: #000; border-radius: 20px">
-              <div class="blog-left-top">
-                <div class="blog-user-section">
-                  <p>DP WORLD</p>
-                </div>
-                <div class="blog-content">
-                  <p>
-                    S7 flawlessly executed Dubai’s largest corporate cricket
-                    tournament with exceptional professionalism. Highly
-                    recommended for organizing premier UAE sports events.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div style="background-color: #000; border-radius: 20px">
-              <div class="blog-left-bottom">
-                <div class="blog-user-section">
-                  <p>Emirates Nature WWF</p>
-                </div>
-                <div class="blog-content">
-                  <p>
-                    S7 delivered an outstanding performance managing Dubai’s
-                    biggest corporate cricket event. Nashat and the team
-                    demonstrated remarkable professionalism and service quality.
-                    Strongly recommended for high-profile sports events in the
-                    UAE.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="blog-right">
-            <div class="blog-right-top">
-              <div class="blog-user-section">
-                <p>MAJID AL FUTTAIM</p>
-              </div>
-              <div class="blog-content">
+            </article>
+            <article class="blog-loop">
+              <img src="./assets/images/blog/blog-bg-2.png" alt="blog image" />
+              <div class="blog-loop__content">
+                <h5>MAJID AL FUTTAIM</h5>
                 <p>
                   A hardworking and professional team. We’re grateful for over 8
                   years of outstanding support from MAF, consistently delivering
@@ -687,144 +490,104 @@
                   milestones together. Truly a remarkable team!
                 </p>
               </div>
-            </div>
-
-            <div style="background-color: #000; border-radius: 20px">
-              <div class="blog-right-bottom">
-                <div class="blog-user-section">
-                  <p>MBRU</p>
-                </div>
-                <div class="blog-content">
-                  <p>
-                    The team's flexibility and commitment set them apart. It’s a
-                    pleasure working with such a dedicated and hardworking
-                    group. - Maryam Al Ali, Senior Executive, MBRU
-                  </p>
-                </div>
+            </article>
+            <article class="blog-loop">
+              <img src="./assets/images/blog/blog-bg-3.png" alt="blog image" />
+              <div class="blog-loop__content">
+                <h5>Emirates Nature WWF</h5>
+                <p>
+                  S7 delivered an outstanding performance managing Dubai’s
+                  biggest corporate cricket event. Nashat and the team
+                  demonstrated remarkable professionalism and service quality.
+                  Strongly recommended for high-profile sports events in the
+                  UAE.
+                </p>
               </div>
-            </div>
+            </article>
+            <article class="blog-loop">
+              <img src="./assets/images/blog/blog-bg-4.png" alt="blog image" />
+              <div class="blog-loop__content">
+                <h5>MBRU</h5>
+                <p>
+                  The team's flexibility and commitment set them apart. It’s a
+                  pleasure working with such a dedicated and hardworking group.
+                  - Maryam Al Ali, Senior Executive, MBRU
+                </p>
+              </div>
+            </article>
           </div>
-        </div>
+        </section>
       </div>
-    </section>
+    </main>
 
+    <!-- footer -->
     <footer>
-      <div class="footer-top">
-        <div class="content-section">
-          <img src="images/logo.svg" />
-          <p>
-            Elevating performance with high-quality sports gear, apparel, and
-            accessories designed for athletes, fitness enthusiasts, and
-            professionals.
-          </p>
-        </div>
+      <div class="container">
+        <div class="footer__wrapper">
+          <div class="footer__about-us">
+            <img src="./assets/images/logo.svg" alt="logo" />
+            <p>
+              Elevating performance with high-quality sports gear, apparel, and
+              accessories designed for athletes, fitness enthusiasts, and
+              professionals.
+            </p>
+          </div>
+          <div class="footer__quick-links">
+            <!-- Company -->
+            <div class="quick-links">
+              <h6>Company</h6>
+              <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">services</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="">Contact</a></li>
+              </ul>
+            </div>
 
-        <div class="items-section-ft">
-          <div class="company-section">
-            <h2>COMPANY</h2>
-            <div class="items">
-              <p><a href="#">Home</a></p>
-              <p><a href="#">Services</a></p>
-              <p><a href="#">About Us</a></p>
-              <p><a href="#">Contact</a></p>
+            <!-- Our services -->
+            <div class="quick-links">
+              <h6>Our Services</h6>
+              <ul>
+                <li><a href="">S7 corporate culture & experience</a></li>
+                <li><a href="">S7 Sports Facility Management</a></li>
+                <li><a href="">S7 Production House</a></li>
+                <li><a href="">S7 Active</a></li>
+                <li><a href="">S7 Play</a></li>
+                <li><a href="">S7 Edu</a></li>
+                <li><a href="">S7 Lifestyle</a></li>
+              </ul>
+            </div>
+
+            <!-- Socials -->
+            <div class="quick-links">
+              <h6>Socials</h6>
+              <ul>
+                <li><a href="">Instagram</a></li>
+                <li><a href="">Linkedin</a></li>
+                <li><a href="">X</a></li>
+              </ul>
             </div>
           </div>
-
-          <div class="division-section">
-            <h2>OUR DIVISIONS</h2>
-            <div class="items">
-              <p><a href="#">S7 corporate culture & experience</a></p>
-              <p><a href="#">S7 Sports Facility Management</a></p>
-              <p><a href="#">S7 Production House</a></p>
-              <p><a href="#">S7 Active</a></p>
-              <p><a href="#">S7 Play</a></p>
-              <p><a href="#">S7 Edu</a></p>
-              <p><a href="#">S7 Lifestyle</a></p>
-            </div>
+        </div>
+        <div class="footer-subsec">
+          <div class="footer-scroll">
+            <h4>We Create Culture. It Moves Everything We Do</h4>
           </div>
-
-          <div class="social-section">
-            <h2>SOCIALS</h2>
-            <div class="items">
-              <p><a href="#">Instagram</a></p>
-              <p><a href="#">LinkedIn</a></p>
-              <p><a href="#">X</a></p>
-            </div>
+          <div class="footer-copyright">
+            <small>© 2025 S7. All Rights Reserved.</small>
+            <button>
+              Back to top
+              <img src="./assets/images/icon-arrow.svg" alt="arrow-icon" />
+            </button>
           </div>
         </div>
-      </div>
-      <style>
-        .pin-spacer-H2 {
-          width: 100% !important;
-          height: 0vh !important;
-          display: flex !important;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-        }
-      </style>
-      <div class="footer-text-section">
-        <div class="marquee">
-          <marquee
-            behavior="scroll"
-            direction="left"
-            scrollamount="10"
-            loop="infinite"
-          >
-            <h2>
-              We Create Culture. It Moves Everything We Do We Create Culture. It
-              Moves Everything We Do We Create Culture. It Moves Everything We
-              Do We Create Culture. It Moves Everything We Do We Create Culture.
-              It Moves Everything We Do
-            </h2>
-          </marquee>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p class="copy-right">© 2025 S7. All Rights Reserved.</p>
-        <p class="backtotop">
-          Back to top
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M9.31429 16.9107C9.36011 17.2435 9.64961 17.5 9.99991 17.5C10.3821 17.5 10.6918 17.1947 10.6918 16.8182L10.6918 4.83339L15.0678 9.16276L15.1453 9.22893C15.4157 9.42753 15.8002 9.40631 16.0463 9.16475C16.3171 8.89904 16.318 8.46733 16.0483 8.20052L10.4996 2.71023C10.4678 2.67753 10.4328 2.64794 10.395 2.62198C10.1248 2.43614 9.74993 2.46234 9.50922 2.70056L3.95161 8.20056L3.88478 8.27717C3.68438 8.54452 3.70754 8.92325 3.95372 9.16479C4.22452 9.43048 4.66262 9.42955 4.93226 9.16271L9.30797 4.83231L9.30797 16.8182L9.31429 16.9107Z"
-              fill="#EEEEEE"
-            />
-          </svg>
-        </p>
       </div>
     </footer>
 
-    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
-    <script src="/js/home.js"></script>
-    <script src="/js/banner.js"></script>
-    <script src="/js/video.js"></script>
-    <script src="/js/content.js"></script>
-    <script src="/js/work.js"></script>
-    <script src="/js/scroll.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://assets.codepen.io/4027472/three.min.js"></script>
-    <script src="https://assets.codepen.io/4027472/OrbitControls.js"></script>
-    <script src="https://assets.codepen.io/4027472/GLTFLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
-    
-    <script></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>
-
