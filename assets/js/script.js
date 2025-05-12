@@ -1,5 +1,4 @@
 function drawCircle(y = 1500, r = 100) {
-  // console.log("Hellow ");
   const canvas = document.getElementById("myCanvas");
   const ctx = canvas.getContext("2d");
 
@@ -36,54 +35,41 @@ function scrollBanner() {
     },
   });
 }
+function loading() {
+  const el = document.querySelector("#loadingText");
 
-//Our Work Animation function
-// function ourWorkAnim() {
-//   const workImages = gsap.utils.toArray(".work-img");
-//   workImages.forEach((item, i) => {
-//     gsap.set(item, { scale: 0.4, yPercent: 50 * i });
-//   });
+  const fullText = "Oh, Hello There";
+  let currentIndex = 0;
 
-//   const splitText = SplitText.create("#ourWorkTitle", { type: "chars" });
-
-//   const tlLetters = gsap.timeline({
-//     scrollTrigger: {
-//       trigger: "#ourWorks",
-//       start: "top center",
-//       // markers: true,
-//       // pin: true,
-//     },
-//   });
-
-//   tlLetters.fromTo(
-//     splitText.chars,
-//     { yPercent: 100 },
-//     { yPercent: 0, stagger: 0.1, duration: 2 },
-//   );
-
-//   const tlImgs = gsap.timeline({
-//     scrollTrigger: {
-//       trigger: "#ourWorks",
-//       start: "top center",
-//       end: "+=300%",
-//       markers: true,
-//       pin: true,
-//       scrub: true,
-//     },
-//   });
-
-//   tlImgs.to(workImages, { scale: 1, yPercent: -100 });
-// }
-
-
-// Our Works Animation New Function
+  function revealText() {
+    if (currentIndex <= fullText.length) {
+      el.textContent = fullText.substring(0, currentIndex);
+      currentIndex++;
+      setTimeout(revealText, 150);
+    }
+    if (currentIndex === fullText.length) {
+      setTimeout(() => {
+        gsap.to("#loadingText", {
+          opacity: 0,
+        });
+        gsap.to("#loader", {
+          opacity: 0,
+          scale: 0,
+          zPercent: -200,
+          duration: 1,
+        });
+      }, 1000);
+    }
+  }
+  revealText();
+}
 
 function ourWorkAnim() {
   let images = gsap.utils.toArray(".work-img");
   // const imageHeight = images[1].offsetHeight;
-  let totalScroll = images.length * (window.innerHeight);
+  let totalScroll = images.length * window.innerHeight;
   gsap.to(images, {
-    yPercent: -120 * (images.length),
+    yPercent: -120 * images.length,
     ease: "none",
     scrollTrigger: {
       trigger: "#ourWorks",
@@ -91,16 +77,14 @@ function ourWorkAnim() {
       end: () => "+=" + totalScroll,
       pin: true,
       // markers: true,
-      scrub: true
-    }
+      scrub: true,
+    },
   });
-
 }
 function scaleWorksImages() {
   const images = gsap.utils.toArray(".work-img");
 
   images.forEach((img) => {
-
     gsap.fromTo(
       img,
       { scale: 0.4 },
@@ -113,13 +97,11 @@ function scaleWorksImages() {
           end: "bottom center",
           scrub: 1,
           // markers: true,
-        }
-      }
+        },
+      },
     );
   });
 }
-
-
 
 function whoWeAreAnim() {
   const title = document.querySelector("#whoWeTitle");
@@ -161,15 +143,14 @@ function whoWeAreAnim() {
     },
   });
 
-
-
-
   gsap.set("#whoWeTitle", { opacity: 0 });
   tl.fromTo("#whoWeTitle", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1 });
   tl.fromTo("#whoWeTitle", { xPercent: 0 }, { x: -scrollWidth - 200 });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  loading();
+
   const navToggler = document.querySelector("#navToggler");
 
   const fetchVideo = async () => {
@@ -216,5 +197,4 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("#ourWorks") && ourWorkAnim();
     scaleWorksImages();
   }
-
 });
