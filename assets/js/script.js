@@ -1,10 +1,10 @@
 function drawCircle(y = 1500, r = 100) {
-  console.log("Hellow ");
+  // console.log("Hellow ");
   const canvas = document.getElementById("myCanvas");
   const ctx = canvas.getContext("2d");
 
   canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  canvas.height = window.innerHeight + 20;
 
   ctx.fillStyle = "black";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -32,51 +32,105 @@ function scrollBanner() {
 }
 
 //Our Work Animation function
+// function ourWorkAnim() {
+//   const workImages = gsap.utils.toArray(".work-img");
+//   workImages.forEach((item, i) => {
+//     gsap.set(item, { scale: 0.4, yPercent: 50 * i });
+//   });
+
+//   const splitText = SplitText.create("#ourWorkTitle", { type: "chars" });
+
+//   const tlLetters = gsap.timeline({
+//     scrollTrigger: {
+//       trigger: "#ourWorks",
+//       start: "top center",
+//       // markers: true,
+//       // pin: true,
+//     },
+//   });
+
+//   tlLetters.fromTo(
+//     splitText.chars,
+//     { yPercent: 100 },
+//     { yPercent: 0, stagger: 0.1, duration: 2 },
+//   );
+
+//   const tlImgs = gsap.timeline({
+//     scrollTrigger: {
+//       trigger: "#ourWorks",
+//       start: "top center",
+//       end: "+=300%",
+//       markers: true,
+//       pin: true,
+//       scrub: true,
+//     },
+//   });
+
+//   tlImgs.to(workImages, { scale: 1, yPercent: -100 });
+// }
+
+
+// Our Works Animation New Function
+
 function ourWorkAnim() {
-  const workImages = gsap.utils.toArray(".work-img");
-  workImages.forEach((item, i) => {
-    gsap.set(item, { scale: 0.4, yPercent: 50 * i });
-  });
-
-  const splitText = SplitText.create("#ourWorkTitle", { type: "chars" });
-
-  const tlLetters = gsap.timeline({
+  let images = gsap.utils.toArray(".work-img");
+  // const imageHeight = images[1].offsetHeight;
+  let totalScroll = images.length * (window.innerHeight);
+  gsap.to(images, {
+    yPercent: -120 * (images.length),
+    ease: "none",
     scrollTrigger: {
       trigger: "#ourWorks",
-      start: "top center",
-      // markers: true,
-      // pin: true,
-    },
-  });
-
-  tlLetters.fromTo(
-    splitText.chars,
-    { yPercent: 100 },
-    { yPercent: 0, stagger: 0.1, duration: 2 },
-  );
-
-  const tlImgs = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#ourWorks",
-      start: "top center",
-      end: "+=300%",
-      markers: true,
+      start: "top top",
+      end: () => "+=" + totalScroll,
       pin: true,
-      scrub: true,
-    },
+      // markers: true,
+      scrub: true
+    }
   });
 
-  tlImgs.to(workImages, { scale: 1, yPercent: -100 });
+}
+function scaleWorksImages() {
+  const images = gsap.utils.toArray(".work-img");
+
+  images.forEach((img) => {
+
+    gsap.fromTo(
+      img,
+      { scale: 0.4 },
+      {
+        scale: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: img,
+          start: "top bottom",
+          end: "bottom center",
+          scrub: 1,
+          // markers: true,
+        }
+      }
+    );
+  });
 }
 
+
+
 function whoWeAreAnim() {
+  const title = document.querySelector("#whoWeTitle");
+  const tittleWidth = title.offsetWidth;
+  let scrollWidth = tittleWidth - window.innerWidth;
+  console.log(scrollWidth);
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: "#whoWeAre",
       start: "top top",
-      end: `+=500%`,
+      // end: `+=${2000}%`,
+
+      end: "+=" + scrollWidth,
       pin: true,
-      scrub: 0.5,
+
+      markers: true,
+      scrub: true,
       onUpdate: (data) => {
         const radius = gsap.utils.mapRange(0, 1, 100, 1500, data.progress);
 
@@ -94,18 +148,19 @@ function whoWeAreAnim() {
           gsap.utils.clamp(0, 1, (data.progress - 0.3) / 0.2),
         );
 
-        console.log(yValue);
+        // console.log(yValue);
 
         drawCircle(yValue, radius);
       },
     },
   });
 
-  const title = document.getElementById("whoWeTitle");
 
-  gsap.set(title, { opacity: 0 });
+
+
+  gsap.set("#whoWeTitle", { opacity: 0 });
   tl.fromTo("#whoWeTitle", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1 });
-  tl.fromTo("#whoWeTitle", { xPercent: 20 }, { xPercent: -200 });
+  tl.fromTo("#whoWeTitle", { xPercent: 0 }, { x: -scrollWidth - 200 });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -147,6 +202,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // });
   //
   document.querySelector(".videoSec") && scrollBanner();
-  document.querySelector("#ourWorks") && ourWorkAnim();
+
   document.querySelector("#whoWeAre") && whoWeAreAnim();
+  const width = window.innerWidth;
+  if (width > 786) {
+    document.querySelector("#ourWorks") && ourWorkAnim();
+    scaleWorksImages();
+  }
+
 });
