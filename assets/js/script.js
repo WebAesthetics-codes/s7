@@ -31,7 +31,7 @@ function scrollBanner() {
       pin: true,
       scrub: .25,
       // snap: 1 / 5,
-      markers: true,
+      // markers: true,
     },
   });
 }
