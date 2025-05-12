@@ -16,7 +16,14 @@ function drawCircle(y = 1500, r = 100) {
 
   ctx.globalCompositeOperation = "source-over";
 }
-
+function smoothScrollAnim() {
+  let smoother = ScrollSmoother.create({
+    wrapper: '#smooth-wrapper',
+    content: '#smooth-content',
+    smooth: 2,
+    smoothTouch: 0.1,
+  })
+}
 function scrollBanner() {
   gsap.set(".videoSec", { scale: 0.3, y: 0 });
   gsap.to(".videoSec", {
@@ -69,7 +76,7 @@ function ourWorkAnim() {
   // const imageHeight = images[1].offsetHeight;
   let totalScroll = images.length * window.innerHeight;
   gsap.to(images, {
-    yPercent: -120 * images.length,
+    yPercent: -125 * images.length,
     ease: "none",
     scrollTrigger: {
       trigger: "#ourWorks",
@@ -77,7 +84,7 @@ function ourWorkAnim() {
       end: () => "+=" + totalScroll,
       pin: true,
       // markers: true,
-      scrub: true,
+      scrub: 0.5,
     },
   });
 }
@@ -178,18 +185,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  drawCircle();
+
 
   gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother);
-
-  // ScrollSmoother.create({
-  //   smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
-  //   effects: true, // looks for data-speed and data-lag attributes on elements
-  //   smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
-  // });
-  //
-
-
+  smoothScrollAnim();
+  drawCircle();
   document.querySelector("#whoWeAre") && whoWeAreAnim();
   const width = window.innerWidth;
   if (width > 786) {
