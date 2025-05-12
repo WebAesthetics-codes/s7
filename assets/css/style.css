@@ -488,7 +488,7 @@ body {
       user-select: none;
       font-family: var(--font-sans);
       text-transform: uppercase;
-      line-height: .8;
+      line-height: 0.8;
       letter-spacing: 5px;
     }
 
@@ -498,6 +498,7 @@ body {
       .title {
         min-height: 100vh;
         display: flex;
+        align-items: center;
         width: fit-content;
       }
 
@@ -800,7 +801,6 @@ footer {
     position: static;
 
     .nav {
-
       .icon-close-btn,
       .nav-toggler {
         display: block;
@@ -1172,3 +1172,4 @@ footer {
     --txt-18: 12rem;
   }
 }
+
