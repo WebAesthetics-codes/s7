@@ -839,7 +839,6 @@ footer {
     position: static;
 
     .nav {
-
       .icon-close-btn,
       .nav-toggler {
         display: block;
@@ -912,7 +911,6 @@ footer {
 
   .videoSec {
     background-color: var(--clr-black);
-
   }
 
   .solo-title {
@@ -944,7 +942,7 @@ footer {
     .service-item {
       img {
         width: 100%;
-        aspect-ratio: 1/.5;
+        aspect-ratio: 1/0.5;
         object-fit: cover;
       }
 
@@ -963,6 +961,29 @@ footer {
   .our-works-img__wrapper {
     gap: 30px;
     padding-top: 30px;
+  }
+
+  .who-we-are {
+    .wrapper {
+      h2 {
+        font-size: 20rem;
+      }
+      .container {
+        .title {
+          min-height: 50vh;
+        }
+      }
+    }
+
+    .who-we__content {
+      grid-template-columns: repeat(6, 1fr);
+      .container {
+        grid-column: 1/7;
+        .content {
+          font-size: var(--txt-xl);
+        }
+      }
+    }
   }
 
   .scroller {
@@ -1222,3 +1243,4 @@ footer {
     --txt-18: 12rem;
   }
 }
+
