@@ -19,14 +19,20 @@ function drawCircle(y = 1500, r = 100) {
 }
 
 function scrollBanner() {
-  gsap.set(".videoSec", { scale: 0.3 });
+  gsap.set(".videoSec", { scale: 0.3, y: 0 });
   gsap.to(".videoSec", {
     scale: 1,
-    ease: "power3.in",
+    y: -500,
+    ease: "none",
     scrollTrigger: {
       trigger: "#s7Banner",
       start: "top top",
-      scrub: 0.5,
+      end: "bottom center",
+      pinSpacing: false,
+      pin: true,
+      scrub: .25,
+      // snap: 1 / 5,
+      markers: true,
     },
   });
 }
@@ -129,7 +135,7 @@ function whoWeAreAnim() {
       end: "+=" + scrollWidth,
       pin: true,
 
-      markers: true,
+      // markers: true,
       scrub: true,
       onUpdate: (data) => {
         const radius = gsap.utils.mapRange(0, 1, 100, 1500, data.progress);
@@ -201,11 +207,12 @@ document.addEventListener("DOMContentLoaded", function () {
   //   smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
   // });
   //
-  document.querySelector(".videoSec") && scrollBanner();
+
 
   document.querySelector("#whoWeAre") && whoWeAreAnim();
   const width = window.innerWidth;
   if (width > 786) {
+    document.querySelector(".videoSec") && scrollBanner();
     document.querySelector("#ourWorks") && ourWorkAnim();
     scaleWorksImages();
   }
