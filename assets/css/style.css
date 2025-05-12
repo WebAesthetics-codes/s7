@@ -226,6 +226,42 @@ body {
   justify-content: center;
 }
 
+/* Loader Animation */
+
+.loader {
+  background-color: black;
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--clr-lblack);
+  font-family: var(--font-sans);
+  font-size: var(--txt-4xl);
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    .cursor {
+      margin-block: 5px;
+      display: block;
+      width: 2px;
+      height: 30px;
+      background-color: var(--clr-lblack);
+      animation: blink 0.7s infinite;
+    }
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
 /* Header styles */
 .header {
   position: fixed;
@@ -1172,4 +1208,3 @@ footer {
     --txt-18: 12rem;
   }
 }
-
