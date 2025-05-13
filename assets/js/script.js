@@ -223,9 +223,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother);
-  smoothScrollAnim();
+  // smoothScrollAnim();
   drawCircle();
-  canvasPing()
+  canvasPing();
   document.querySelector("#whoWeAre") && whoWeAreAnim();
   document.querySelector("#marquee") && marqueeFooter();
   const width = window.innerWidth;
