@@ -113,8 +113,9 @@ function scaleWorksImages() {
 function whoWeAreAnim() {
   const title = document.querySelector("#whoWeTitle");
   const tittleWidth = title.offsetWidth;
+  const dynmaicRadius = window.innerWidth > 786 ? window.innerWidth : window.innerHeight;
   let scrollWidth = tittleWidth - window.innerWidth;
-  console.log(scrollWidth);
+  // console.log(scrollWidth);
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: "#whoWeAre",
@@ -127,7 +128,7 @@ function whoWeAreAnim() {
       // markers: true,
       scrub: true,
       onUpdate: (data) => {
-        const radius = gsap.utils.mapRange(0, 1, 100, 1500, data.progress);
+        const radius = gsap.utils.mapRange(0, 1, 100, dynmaicRadius, data.progress);
 
         const snapValue = gsap.utils.snap(100);
 
@@ -152,9 +153,41 @@ function whoWeAreAnim() {
 
   gsap.set("#whoWeTitle", { opacity: 0 });
   tl.fromTo("#whoWeTitle", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1 });
-  tl.fromTo("#whoWeTitle", { xPercent: 0 }, { x: -scrollWidth - 200 });
+  tl.fromTo("#whoWeTitle", { xPercent: 0 }, { x: -scrollWidth - 100 }, "+=.75");
 }
+function marqueeFooter() {
+  let marqueeText = document.querySelector(".marquee-text");
+  let containerWidth = document.querySelector(".marquee-container").offsetWidth;
+  let textWidth = marqueeText.offsetWidth;
+  console.log(textWidth);
+  console.log(containerWidth);
 
+
+  // Make sure the marquee text is wider than the container
+  if (textWidth < containerWidth) {
+    marqueeText.style.paddingRight = containerWidth;  // Add extra space if it's not enough
+    textWidth = marqueeText.offsetWidth; // Recalculate width after adding padding
+  }
+
+  // Move the text to the left
+  function moveMarquee() {
+    console.log('yey');
+    marqueeText.style.transition = "none";
+    marqueeText.style.left = containerWidth + "px";
+
+    // Trigger reflow to apply new position before transition
+    void marqueeText.offsetWidth;
+
+    marqueeText.style.transition = `left ${10 * textWidth}ms linear`;
+    marqueeText.style.left = `-${textWidth}px`;
+
+    // When animation ends, restart
+    marqueeText.addEventListener("transitionend", moveMarquee, { once: true });
+  }
+
+  // Initialize the marquee animation
+  moveMarquee();
+}
 document.addEventListener("DOMContentLoaded", function () {
   loading();
 
@@ -188,9 +221,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother);
-  smoothScrollAnim();
+  // smoothScrollAnim();
   drawCircle();
   document.querySelector("#whoWeAre") && whoWeAreAnim();
+  // document.querySelector("#marquee") && marqueeFooter();
   const width = window.innerWidth;
   if (width > 786) {
     document.querySelector(".videoSec") && scrollBanner();

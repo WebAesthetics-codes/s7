@@ -476,6 +476,8 @@ body {
 }
 
 .our-clients {
+  padding-block: 10rem;
+
   .container {
     flex-basis: 100%;
     display: flex;
@@ -495,6 +497,10 @@ body {
       grid-template-columns: repeat(4, 1fr);
       justify-items: center;
       row-gap: 100px;
+
+      li {
+        align-content: center;
+      }
     }
   }
 }
@@ -520,7 +526,7 @@ body {
     position: relative;
 
     h2 {
-      font-size: 80rem;
+      font-size: 50rem;
       color: var(--clr-black);
       white-space: nowrap;
       user-select: none;
@@ -769,6 +775,7 @@ footer {
           font-weight: 200;
           line-height: 1;
           white-space: nowrap;
+          width: fit-content;
         }
       }
 
@@ -956,6 +963,25 @@ footer {
 
       .icon {
         display: none;
+      }
+    }
+  }
+
+  .who-we-are {
+    .wrapper {
+      h2 {
+        font-size: 20rem;
+
+      }
+    }
+
+    .who-we__content {
+      grid-template-columns: 1fr;
+
+      .container {
+        .content {
+          font-size: 2rem;
+        }
       }
     }
   }
