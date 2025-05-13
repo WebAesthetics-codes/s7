@@ -267,6 +267,7 @@ body {
 /* Header styles */
 .header {
   position: fixed;
+  z-index: 9999;
   top: 0;
   left: 0;
   right: 0;
@@ -308,6 +309,10 @@ body {
         color: var(--clr-lblack);
         text-decoration: none;
         font-size: var(--txt-base);
+      }
+
+      a.active {
+        color: var(--clr-white);
       }
     }
   }
@@ -507,11 +512,13 @@ body {
 
 .who-we-are {
   background-color: var(--clr-white);
+  position: relative;
 
   #myCanvas {
     pointer-events: none;
-    position: sticky;
-    top: 0px;
+    position: absolute;
+    inset: 0;
+    display: block;
     z-index: 11;
   }
 
@@ -844,6 +851,7 @@ footer {
 
   .header {
     position: static;
+    z-index: 9999;
 
     .nav {
       .icon-close-btn,
@@ -984,9 +992,15 @@ footer {
     }
   }
 
-  .our-works-img__wrapper {
-    gap: 30px;
-    padding-top: 30px;
+  .our-works {
+    h2 {
+      font-size: 5rem;
+    }
+
+    .our-works-img__wrapper {
+      gap: 30px;
+      padding-top: 30px;
+    }
   }
 
   .who-we-are {
