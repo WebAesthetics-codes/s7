@@ -1,9 +1,10 @@
 function drawCircle(y = 1500, r = 100) {
   const canvas = document.getElementById("myCanvas");
   const ctx = canvas.getContext("2d");
+  const dynmaicHight = window.innerWidth > 786 ? 50 : 150;
 
   canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight + 20;
+  canvas.height = window.innerHeight + dynmaicHight;
 
   ctx.fillStyle = "black";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -109,7 +110,21 @@ function scaleWorksImages() {
     );
   });
 }
+function canvasPing() {
 
+  ScrollTrigger.create({
+    trigger: "#myCanvas",
+    start: "top top",
+    end: "+=200%",
+    pin: true,
+    pinSpacing: false,
+    // onEnter: () => {
+    //   const canvas = document.getElementById("#myCanvas");
+    //   console.log(canvas);
+    // }
+    // markers: true
+  });
+}
 function whoWeAreAnim() {
   const title = document.querySelector("#whoWeTitle");
   const tittleWidth = title.offsetWidth;
@@ -126,7 +141,7 @@ function whoWeAreAnim() {
       pin: true,
 
       // markers: true,
-      scrub: true,
+      scrub: 2,
       onUpdate: (data) => {
         const radius = gsap.utils.mapRange(0, 1, 100, dynmaicRadius, data.progress);
 
@@ -153,40 +168,27 @@ function whoWeAreAnim() {
 
   gsap.set("#whoWeTitle", { opacity: 0 });
   tl.fromTo("#whoWeTitle", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1 });
-  tl.fromTo("#whoWeTitle", { xPercent: 0 }, { x: -scrollWidth - 100 }, "+=.75");
+  tl.fromTo("#whoWeTitle", { xPercent: 0 }, { x: -scrollWidth - 100 }, "+=.5");
 }
 function marqueeFooter() {
-  let marqueeText = document.querySelector(".marquee-text");
-  let containerWidth = document.querySelector(".marquee-container").offsetWidth;
+  const marqueeText = document.querySelector(".marquee-text");
+  const container = document.querySelector(".marquee-container");
+
+  let containerWidth = container.offsetWidth;
   let textWidth = marqueeText.offsetWidth;
-  console.log(textWidth);
-  console.log(containerWidth);
 
+  let pos = containerWidth;
 
-  // Make sure the marquee text is wider than the container
-  if (textWidth < containerWidth) {
-    marqueeText.style.paddingRight = containerWidth;  // Add extra space if it's not enough
-    textWidth = marqueeText.offsetWidth; // Recalculate width after adding padding
+  function animate() {
+    pos -= 2; // speed of scrolling
+    if (pos < -textWidth) {
+      pos = containerWidth;
+    }
+    marqueeText.style.transform = `translateX(${pos}px)`;
+    requestAnimationFrame(animate);
   }
 
-  // Move the text to the left
-  function moveMarquee() {
-    console.log('yey');
-    marqueeText.style.transition = "none";
-    marqueeText.style.left = containerWidth + "px";
-
-    // Trigger reflow to apply new position before transition
-    void marqueeText.offsetWidth;
-
-    marqueeText.style.transition = `left ${10 * textWidth}ms linear`;
-    marqueeText.style.left = `-${textWidth}px`;
-
-    // When animation ends, restart
-    marqueeText.addEventListener("transitionend", moveMarquee, { once: true });
-  }
-
-  // Initialize the marquee animation
-  moveMarquee();
+  animate();
 }
 document.addEventListener("DOMContentLoaded", function () {
   loading();
@@ -221,10 +223,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother);
-  // smoothScrollAnim();
+  smoothScrollAnim();
   drawCircle();
+  canvasPing()
   document.querySelector("#whoWeAre") && whoWeAreAnim();
-  // document.querySelector("#marquee") && marqueeFooter();
+  document.querySelector("#marquee") && marqueeFooter();
   const width = window.innerWidth;
   if (width > 786) {
     document.querySelector(".videoSec") && scrollBanner();
