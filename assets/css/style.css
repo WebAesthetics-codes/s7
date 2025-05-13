@@ -699,6 +699,8 @@ footer {
   padding-top: 15rem;
   display: flex;
   align-items: flex-end;
+  background-color: var(--clr-black);
+  z-index: 999;
 
   .container {
     display: flex;
@@ -851,7 +853,7 @@ footer {
 
   .header {
     position: static;
-    z-index: 9999;
+    z-index: 99;
 
     .nav {
 
