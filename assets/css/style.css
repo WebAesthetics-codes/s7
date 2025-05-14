@@ -114,6 +114,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   font-family: var(--font-serif);
+  background-color: var(--clr-black);
 }
 
 img,

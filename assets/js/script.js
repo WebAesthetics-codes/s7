@@ -21,7 +21,7 @@ function smoothScrollAnim() {
   let smoother = ScrollSmoother.create({
     wrapper: '#smooth-wrapper',
     content: '#smooth-content',
-    smooth: 2,
+    smooth: 3,
     smoothTouch: 0.1,
   })
 }
@@ -118,10 +118,6 @@ function canvasPing() {
     end: "+=200%",
     pin: true,
     pinSpacing: false,
-    // onEnter: () => {
-    //   const canvas = document.getElementById("#myCanvas");
-    //   console.log(canvas);
-    // }
     // markers: true
   });
 }
@@ -223,7 +219,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother);
-  // smoothScrollAnim();
+  smoothScrollAnim();
   drawCircle();
   canvasPing();
   document.querySelector("#whoWeAre") && whoWeAreAnim();
@@ -234,4 +230,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("#ourWorks") && ourWorkAnim();
     scaleWorksImages();
   }
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 300);
+  });
 });
