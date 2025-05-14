@@ -113,11 +113,11 @@ function scaleWorksImages() {
 function canvasPing() {
 
   ScrollTrigger.create({
-    trigger: "#myCanvas",
+    trigger: ".who-we-are",
     start: "top top",
-    end: "+=200%",
-    pin: true,
-    pinSpacing: false,
+    end: "+=500%",
+    pin: "#myCanvas",
+    // pinSpacing: false,
     // markers: true
   });
 }
@@ -133,7 +133,7 @@ function whoWeAreAnim() {
       start: "top top",
       // end: `+=${2000}%`,
 
-      end: "+=" + scrollWidth,
+      end: "+=" + scrollWidth * 3.3,
       pin: true,
 
       // markers: true,
@@ -164,7 +164,7 @@ function whoWeAreAnim() {
 
   gsap.set("#whoWeTitle", { opacity: 0 });
   tl.fromTo("#whoWeTitle", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1 });
-  tl.fromTo("#whoWeTitle", { xPercent: 0 }, { x: -scrollWidth - 100 }, "+=.5");
+  tl.fromTo("#whoWeTitle", { xPercent: 0 }, { x: -scrollWidth - 100 });
 }
 function marqueeFooter() {
   const marqueeText = document.querySelector(".marquee-text");
@@ -233,6 +233,6 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("load", () => {
     setTimeout(() => {
       ScrollTrigger.refresh();
-    }, 300);
+    }, 500);
   });
 });

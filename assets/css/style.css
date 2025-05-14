@@ -227,6 +227,10 @@ body {
   justify-content: center;
 }
 
+.hide {
+  display: none;
+}
+
 /* Loader Animation */
 
 .loader {
@@ -550,7 +554,7 @@ body {
   .wrapper {
     width: 100%;
     height: 100%;
-    position: relative;
+    /* position: relative; */
 
     h2 {
       font-size: 50rem;
@@ -573,12 +577,12 @@ body {
         width: fit-content;
       }
 
-      .images {
+      /* .images {
         position: absolute;
         inset: 0;
         display: flex;
         justify-content: space-between;
-      }
+      } */
     }
   }
 
@@ -607,6 +611,7 @@ body {
         display: flex;
         align-items: center;
         gap: 20px;
+        display: none;
 
         i {
           display: block;
@@ -1065,6 +1070,12 @@ footer {
         align-items: center;
         column-gap: 30px;
         row-gap: 50px;
+
+        li {
+          img {
+            width: 50%;
+          }
+        }
       }
     }
   }
