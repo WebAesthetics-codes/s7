@@ -24,6 +24,12 @@ function smoothScrollAnim() {
     smooth: 3,
     smoothTouch: 0.1,
   })
+  let button = document.querySelector(".footer_top_btn");
+
+  button.addEventListener("click", (e) => {
+    smoother.scrollTo(".s7-banner", true, "center center")
+
+  });
 }
 function scrollBanner() {
   gsap.set(".videoSec", { scale: 0.3, y: 0 });
@@ -43,6 +49,45 @@ function scrollBanner() {
     },
   });
 }
+function videoSoundBtn() {
+
+  const video = document.getElementById("mainVideo");
+  const soundButton = document.getElementById("soundButton");
+
+  console.log("Video element:", video); // Debugging line
+  console.log("Initial muted state:", video.muted); // Debugging line
+
+  // Set initial button state
+  updateButton();
+
+  // Toggle mute/unmute on button click
+  soundButton.addEventListener("click", function () {
+    video.muted = !video.muted;
+    console.log("New muted state:", video.muted); // Debugging line
+    updateButton();
+
+    // Try to play if unmuting (required by some browsers)
+    if (!video.muted) {
+      video.play().catch((error) => {
+        console.log("Play failed:", error);
+        // Show message to user if needed
+        alert("Please interact with the page first to enable sound");
+      });
+    }
+  });
+
+  function updateButton() {
+    if (video.muted) {
+      soundButton.classList.add("icon-volume-mute");
+      soundButton.classList.remove("icon-volume-high");
+    } else {
+      soundButton.classList.remove("icon-volume-mute");
+      soundButton.classList.add("icon-volume-high");
+    }
+  }
+
+
+}
 function loading() {
   const el = document.querySelector("#loadingText");
 
@@ -50,13 +95,20 @@ function loading() {
   let currentIndex = 0;
 
   function revealText() {
+    // document.body.style.overflow = ""
     if (currentIndex <= fullText.length) {
       el.textContent = fullText.substring(0, currentIndex);
       currentIndex++;
-      setTimeout(revealText, 150);
+      setTimeout(() => {
+        revealText();
+        document.body.style.overflow = "hidden";
+        window.scrollTo(0, 0);
+
+      }, 150);
     }
     if (currentIndex === fullText.length) {
       setTimeout(() => {
+        document.body.style.overflow = "auto";
         gsap.to("#loadingText", {
           opacity: 0,
         });
@@ -108,6 +160,31 @@ function scaleWorksImages() {
         },
       },
     );
+  });
+}
+function workSplitTextAnim() {
+  const textElement = document.querySelector(".animated-text");
+  const text = textElement.textContent;
+  textElement.innerHTML = "";
+
+  text.split("").forEach(char => {
+    const span = document.createElement("span");
+    span.textContent = char;
+    span.style.color = "#666"; // light black
+    textElement.appendChild(span);
+  });
+
+  gsap.to(".animated-text span", {
+    color: "#fff",
+    stagger: 0.05, // one-by-one animation
+    scrollTrigger: {
+      trigger: ".animated-text",
+      start: "top center",
+      end: "bottom 60%",
+      pin: true,
+      scrub: 2,
+      // markers: true
+    }
   });
 }
 function canvasPing() {
@@ -221,7 +298,9 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother);
   smoothScrollAnim();
   drawCircle();
-  canvasPing();
+  videoSoundBtn()
+  document.querySelector("#whoWeAre") && canvasPing();
+  document.querySelector("#ourWorks") && workSplitTextAnim();
   document.querySelector("#whoWeAre") && whoWeAreAnim();
   document.querySelector("#marquee") && marqueeFooter();
   const width = window.innerWidth;
