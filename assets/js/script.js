@@ -1,4 +1,4 @@
-function drawCircle(y = 1500, r = 100) {
+function drawCircle(y = 1500, r = 30) {
   const canvas = document.getElementById("myCanvas");
   const ctx = canvas.getContext("2d");
   const dynmaicHight = window.innerWidth > 786 ? 50 : 150;
@@ -54,8 +54,8 @@ function videoSoundBtn() {
   const video = document.getElementById("mainVideo");
   const soundButton = document.getElementById("soundButton");
 
-  console.log("Video element:", video); // Debugging line
-  console.log("Initial muted state:", video.muted); // Debugging line
+  // console.log("Video element:", video); // Debugging line
+  // console.log("Initial muted state:", video.muted); // Debugging line
 
   // Set initial button state
   updateButton();
@@ -63,7 +63,7 @@ function videoSoundBtn() {
   // Toggle mute/unmute on button click
   soundButton.addEventListener("click", function () {
     video.muted = !video.muted;
-    console.log("New muted state:", video.muted); // Debugging line
+    // console.log("New muted state:", video.muted); // Debugging line
     updateButton();
 
     // Try to play if unmuting (required by some browsers)
@@ -202,35 +202,49 @@ function canvasPing() {
     // markers: true
   });
 }
+function whoWeArePin() {
+  const title = document.querySelector("#whoWeTitle");
+  const tittleWidth = title.offsetWidth;
+  let scrollWidth = tittleWidth - window.innerWidth;
+
+  ScrollTrigger.create({
+    trigger: "#whoWeAre",
+    start: "top top",
+    end: "+=" + scrollWidth * 2,
+    pin: true,
+    // pinSpacing: false,
+    // markers: true
+  });
+}
 function whoWeAreAnim() {
   const title = document.querySelector("#whoWeTitle");
   const tittleWidth = title.offsetWidth;
-  const dynmaicRadius = window.innerWidth > 786 ? window.innerWidth : window.innerHeight;
+  const dynmaicRadius = window.innerWidth > 786 ? window.innerHeight + (window.innerWidth - window.innerHeight) : window.innerHeight;
   let scrollWidth = tittleWidth - window.innerWidth;
-  // console.log(scrollWidth);
+  // console.log(window.innerHeight + (window.innerWidth - window.innerHeight));
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: "#whoWeAre",
-      start: "top top",
+      start: "top center",
       // end: `+=${2000}%`,
 
-      end: "+=" + scrollWidth * 3.3,
-      pin: true,
+      end: "+=" + scrollWidth * 2,
+      // pin: true,
 
       // markers: true,
       scrub: 2,
       onUpdate: (data) => {
-        const radius = gsap.utils.mapRange(0, 1, 100, dynmaicRadius, data.progress);
+        const radius = gsap.utils.mapRange(0, 1, 30, dynmaicRadius, data.progress);
 
         const snapValue = gsap.utils.snap(100);
 
         const yValue = gsap.utils.interpolate(
           gsap.utils.mapRange(
             0,
-            0.3,
+            0.2,
             1000,
             window.innerHeight / 2,
-            Math.min(data.progress, 0.3),
+            Math.min(data.progress, 0.2),
           ),
           window.innerHeight / 2,
           gsap.utils.clamp(0, 1, (data.progress - 0.3) / 0.2),
@@ -307,6 +321,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelector("#ourWorks") && workSplitTextAnim();
   document.querySelector("#whoWeAre") && whoWeAreAnim();
   document.querySelector("#marquee") && marqueeFooter();
+  document.querySelector("#whoWeAre") && whoWeArePin();
 
   const width = window.innerWidth;
   if (width > 786) {

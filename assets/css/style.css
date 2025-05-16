@@ -605,6 +605,7 @@ body {
   position: relative;
 
   #myCanvas {
+    margin-top: -15px;
     pointer-events: none;
     position: absolute;
     inset: 0;
