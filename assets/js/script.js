@@ -126,10 +126,14 @@ function loading() {
 
 function ourWorkAnim() {
   let images = gsap.utils.toArray(".work-img");
-  // const imageHeight = images[1].offsetHeight;
-  let totalScroll = images.length * window.innerHeight;
+  let imgWrapper = document.querySelector(".our-works-img__wrapper");
+  let wrapperHight = imgWrapper.offsetHeight;
+  const imageHeight = images[1].offsetHeight;
+  // let totalScroll = images.length * window.innerHeight;
+  let totalScroll = wrapperHight + window.innerHeight - imageHeight;
   gsap.to(images, {
-    yPercent: -125 * images.length,
+    // yPercent: -125 * images.length,
+    y: -totalScroll + 100,
     ease: "none",
     scrollTrigger: {
       trigger: "#ourWorks",
@@ -298,20 +302,21 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother);
   smoothScrollAnim();
   drawCircle();
-  videoSoundBtn()
+  document.querySelector(".videoSec") && videoSoundBtn();
   document.querySelector("#whoWeAre") && canvasPing();
   document.querySelector("#ourWorks") && workSplitTextAnim();
   document.querySelector("#whoWeAre") && whoWeAreAnim();
   document.querySelector("#marquee") && marqueeFooter();
+
   const width = window.innerWidth;
   if (width > 786) {
     document.querySelector(".videoSec") && scrollBanner();
     document.querySelector("#ourWorks") && ourWorkAnim();
-    scaleWorksImages();
+    document.querySelector("#ourWorks") && scaleWorksImages();
   }
   window.addEventListener("load", () => {
     setTimeout(() => {
       ScrollTrigger.refresh();
-    }, 500);
+    }, 5000);
   });
 });

@@ -348,6 +348,10 @@ body {
   .container {
     position: relative;
 
+    #mainVideo {
+      width: 100%;
+    }
+
     i {
       cursor: pointer;
       color: var(--clr-white);
