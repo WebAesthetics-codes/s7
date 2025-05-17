@@ -564,6 +564,7 @@ body {
   }
 
   h3 {
+    padding-top: 150px;
     text-align: justify;
     font-size: var(--txt-4xl);
     font-weight: 500;

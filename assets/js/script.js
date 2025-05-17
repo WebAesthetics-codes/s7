@@ -129,8 +129,10 @@ function ourWorkAnim() {
   let imgWrapper = document.querySelector(".our-works-img__wrapper");
   let wrapperHight = imgWrapper.offsetHeight;
   const imageHeight = images[1].offsetHeight;
+  // console.log(wrapperHight);
   // let totalScroll = images.length * window.innerHeight;
-  let totalScroll = wrapperHight + window.innerHeight - imageHeight;
+  let totalScroll = wrapperHight + (window.innerHeight - imageHeight);
+  // console.log(totalScroll);
   gsap.to(images, {
     // yPercent: -125 * images.length,
     y: -totalScroll + 100,
@@ -166,6 +168,34 @@ function scaleWorksImages() {
     );
   });
 }
+function waitForImagesThenRun(callback) {
+  const wrapper = document.querySelector(".our-works-img__wrapper");
+  if (!wrapper) return;                 // safety‑check
+
+  const images = wrapper.querySelectorAll("img");
+  let loaded = 0;
+
+
+
+  if (images.length === 0) {
+    // console.log("not img load");
+    callback();
+    // nothing to wait for
+    return;
+  }
+
+  images.forEach(img => {
+    if (img.complete) {
+      // console.log("full img load");
+      if (++loaded === images.length) callback();
+
+    } else {
+      img.onload = img.onerror = () => {
+        if (++loaded === images.length) callback();
+      };
+    }
+  });
+}
 function workSplitTextAnim() {
   const textElement = document.querySelector(".animated-text");
   const text = textElement.textContent;
@@ -179,13 +209,19 @@ function workSplitTextAnim() {
   });
 
   gsap.to(".animated-text span", {
+    duration: 25,
     color: "#fff",
-    stagger: 0.05, // one-by-one animation
+    // stagger: 0.05, // one-by-one animation
+    stagger: {
+      each: 1,         // still one‑by‑one
+      from: "start",
+      repeatDelay: 25      // 5 s pause after each character’s fade completes
+    },
     scrollTrigger: {
       trigger: ".animated-text",
       start: "top center",
       end: "bottom 60%",
-      pin: true,
+      // pin: true,
       scrub: 2,
       // markers: true
     }
@@ -326,12 +362,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const width = window.innerWidth;
   if (width > 786) {
     document.querySelector(".videoSec") && scrollBanner();
-    document.querySelector("#ourWorks") && ourWorkAnim();
+    // document.querySelector("#ourWorks") && ourWorkAnim();
+    document.querySelector("#ourWorks") && waitForImagesThenRun(ourWorkAnim);
     document.querySelector("#ourWorks") && scaleWorksImages();
   }
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 5000);
-  });
+
+  setTimeout(() => {
+    ScrollTrigger.refresh();
+  }, 5000);
+
 });
