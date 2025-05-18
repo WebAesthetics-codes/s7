@@ -1,7 +1,7 @@
 function drawCircle(y = 1500, r = 30) {
   const canvas = document.getElementById("myCanvas");
   const ctx = canvas.getContext("2d");
-  const dynmaicHight = window.innerWidth > 786 ? 50 : 150;
+  const dynmaicHight = window.innerWidth > 786 ? 80 : 150;
 
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight + dynmaicHight;
@@ -21,7 +21,7 @@ function smoothScrollAnim() {
   let smoother = ScrollSmoother.create({
     wrapper: '#smooth-wrapper',
     content: '#smooth-content',
-    smooth: 3,
+    smooth: 2,
     smoothTouch: 0.1,
   })
   let button = document.querySelector(".footer_top_btn");
@@ -31,24 +31,61 @@ function smoothScrollAnim() {
 
   });
 }
+// function scrollBanner() {
+//   gsap.set(".videoSec", { scale: 0.3, y: 0 });
+//   gsap.to(".videoSec", {
+//     scale: 1,
+//     y: -500,
+//     ease: "none",
+//     scrollTrigger: {
+//       trigger: "#s7Banner",
+//       start: "top top",
+//       end: "bottom 70%",
+//       pinSpacing: false,
+//       pin: true,
+//       scrub: .25,
+//       // snap: 1 / 5,
+//       // markers: true,
+//     },
+//   });
+// }
+
 function scrollBanner() {
-  gsap.set(".videoSec", { scale: 0.3, y: 0 });
-  gsap.to(".videoSec", {
-    scale: 1,
-    y: -500,
-    ease: "none",
+  // Set initial state
+  gsap.set(".videoSec", { scale: 0.4, y: 0 });
+
+  // Create a scroll-triggered timeline
+  let tl = gsap.timeline({
     scrollTrigger: {
       trigger: "#s7Banner",
       start: "top top",
-      end: "bottom center",
-      pinSpacing: false,
+      end: "bottom 70%",
       pin: true,
-      scrub: .25,
+      pinSpacing: false,
+      scrub: 1,
       // snap: 1 / 5,
       // markers: true,
-    },
+    }
   });
+
+  // Add animation to the timeline
+  tl.to(".videoSec", {
+    scale: .8,
+    y: -150,
+    ease: "none"
+  });
+  tl.to(".videoSec", {
+    scale: 1,
+    y: -250,
+    ease: "none"
+  });
+  tl.to(".videoSec", {
+    y: -500,
+    ease: "none"
+  });
+
 }
+
 function videoSoundBtn() {
 
   const video = document.getElementById("mainVideo");
@@ -124,28 +161,61 @@ function loading() {
   revealText();
 }
 
-function ourWorkAnim() {
+// function ourWorkAnim() {
+//   let images = gsap.utils.toArray(".work-img");
+//   let imgWrapper = document.querySelector(".our-works-img__wrapper");
+//   let wrapperHight = imgWrapper.offsetHeight;
+//   const imageHeight = images[1].offsetHeight;
+//   // console.log(wrapperHight);
+//   // let totalScroll = images.length * window.innerHeight;
+//   let totalScroll = wrapperHight + (window.innerHeight - imageHeight);
+//   // console.log(totalScroll);
+//   gsap.to(images, {
+//     // yPercent: -125 * images.length,
+//     y: -totalScroll + 100,
+//     ease: "none",
+//     scrollTrigger: {
+//       trigger: "#ourWorks",
+//       start: "top top",
+//       end: () => "+=" + totalScroll,
+//       pin: true,
+//       // markers: true,
+//       scrub: 0.5,
+//     },
+//   });
+// }
+function ourWorkAnim() { //time line based
   let images = gsap.utils.toArray(".work-img");
   let imgWrapper = document.querySelector(".our-works-img__wrapper");
-  let wrapperHight = imgWrapper.offsetHeight;
+  let wrapperHeight = imgWrapper.offsetHeight;
+  let heading = document.querySelector("#ourWorkTitle");
+  console.log(heading);
+
   const imageHeight = images[1].offsetHeight;
-  // console.log(wrapperHight);
-  // let totalScroll = images.length * window.innerHeight;
-  let totalScroll = wrapperHight + (window.innerHeight - imageHeight);
-  // console.log(totalScroll);
-  gsap.to(images, {
-    // yPercent: -125 * images.length,
-    y: -totalScroll + 100,
-    ease: "none",
+
+  let totalScroll = wrapperHeight + (window.innerHeight - imageHeight);
+
+  // Create timeline
+  let tl = gsap.timeline({
     scrollTrigger: {
       trigger: "#ourWorks",
       start: "top top",
-      end: () => "+=" + totalScroll,
+      end: "+=" + totalScroll,
       pin: true,
-      // markers: true,
       scrub: 0.5,
-    },
+      // markers: true,
+    }
   });
+
+  // Animate images vertically as the user scrolls
+  tl.to(images, {
+    y: -totalScroll + 100,
+    ease: "none"
+  });
+  tl.to(heading, {
+    y: "-150", // move up slightly as images start scrolling
+    ease: "none"
+  }, 0);
 }
 function scaleWorksImages() {
   const images = gsap.utils.toArray(".work-img");
@@ -246,7 +316,7 @@ function whoWeArePin() {
   ScrollTrigger.create({
     trigger: "#whoWeAre",
     start: "top top",
-    end: "+=" + scrollWidth * 2,
+    end: "+=" + scrollWidth * 2.5,
     pin: true,
     // pinSpacing: false,
     // markers: true
@@ -264,7 +334,7 @@ function whoWeAreAnim() {
       start: "top center",
       // end: `+=${2000}%`,
 
-      end: "+=" + scrollWidth * 2,
+      end: "+=" + scrollWidth * 2.5,
       // pin: true,
 
       // markers: true,
@@ -295,7 +365,7 @@ function whoWeAreAnim() {
 
   gsap.set("#whoWeTitle", { opacity: 0 });
   tl.fromTo("#whoWeTitle", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1 });
-  tl.fromTo("#whoWeTitle", { xPercent: 0 }, { x: -scrollWidth - 100 });
+  tl.fromTo("#whoWeTitle", { xPercent: 0 }, { x: -scrollWidth - 100 }, .75);
 }
 function marqueeFooter() {
   const marqueeText = document.querySelector(".marquee-text");

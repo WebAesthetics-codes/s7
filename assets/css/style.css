@@ -271,6 +271,8 @@ body {
 
 /* Header styles */
 .header {
+  color: #fff;
+  mix-blend-mode: difference;
   position: fixed;
   z-index: 9999;
   top: 0;
@@ -282,6 +284,12 @@ body {
     align-items: center;
     justify-content: space-between;
     padding-block: 14px;
+
+    .nav__brand {
+      img {
+        width: 75%;
+      }
+    }
 
     .icon-close-btn,
     .nav-toggler {
@@ -311,14 +319,14 @@ body {
     .nav__cta {
       a {
         font-weight: 500;
-        color: var(--clr-lblack);
+        color: var(--clr-white);
         text-decoration: none;
         font-size: var(--txt-base);
       }
 
-      a.active,
+
       a:hover {
-        color: var(--clr-white);
+        color: var(--clr-lblack);
       }
     }
   }
@@ -350,6 +358,8 @@ body {
 
     #mainVideo {
       width: 100%;
+      height: 100vh;
+      object-fit: cover;
     }
 
     i {
@@ -546,7 +556,7 @@ body {
 }
 
 .our-works-img__wrapper {
-  gap: 120px;
+  gap: 220px;
   display: flex;
   flex-direction: column;
 }
@@ -625,7 +635,7 @@ body {
     /* position: relative; */
 
     h2 {
-      font-size: 50rem;
+      font-size: 55rem;
       color: var(--clr-black);
       white-space: nowrap;
       user-select: none;
