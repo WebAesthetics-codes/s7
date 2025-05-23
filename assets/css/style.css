@@ -565,7 +565,7 @@ body {
   color: var(--clr-lblack);
 
   .container {
-    padding-inline: 20%;
+    padding-inline: 6%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1426,5 +1426,92 @@ footer {
 @media (min-width: 76.8em) and (max-width: 102.4em) {
   :root {
     --txt-18: 12rem;
+  }
+}
+
+@media (min-width: 130em) {
+  :root {
+    --txt-18: 8vw;
+    --txt-16: 8vw;
+    --txt-6xl: 5vw;
+    --txt-5xl: 3vw;
+    --txt-4xl: 2.5vw;
+    --txt-3xl: 2.3vw;
+    --txt-2xl: 2vw;
+    --txt-xl: 1.5vw;
+    --txt-lg: 1.3vw;
+    --txt-md: 1.2vw;
+    --txt-base: 1vw;
+
+    --title-spacing: 3vw;
+  }
+
+  .header {
+    .nav {
+      .nav__brand {
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .our-services {
+    .container {
+      flex: 1;
+    }
+
+    .our-services__wrapper {
+      width: 100%;
+      padding-inline: 6%;
+
+      .service-item {
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .content {
+          img {
+            width: auto;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+
+  .who-we-are {
+    .wrapper {
+      h2 {
+        font-size: 34vw;
+      }
+    }
+
+
+    .who-we__content {
+      .container {
+        .content {
+          font-size: 1.5vw;
+          line-height: 2.5vw;
+        }
+      }
+    }
+  }
+
+  .our-clients {
+    .container {
+      .our-client__wrapper {
+        justify-items: unset;
+
+        li {
+          img {
+            width: 50%;
+            margin-inline: auto;
+          }
+        }
+      }
+    }
   }
 }
