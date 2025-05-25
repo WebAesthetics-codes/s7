@@ -41,14 +41,14 @@ camera.position.set(100, 0, 100);
 // Enhanced lighting
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(ambientLight);
-
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-directionalLight.position.set(1, 1, 1);
-scene.add(directionalLight);
-
-const pointLight = new THREE.PointLight(0xffffff, 2, 100);
-pointLight.position.set(0, 50, 0);
-scene.add(pointLight);
+//
+// const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+// directionalLight.position.set(1, 1, 1);
+// scene.add(directionalLight);
+//
+// const pointLight = new THREE.PointLight(0xffffff, 2, 100);
+// pointLight.position.set(0, 50, 0);
+// scene.add(pointLight);
 
 // Add a subtle hemisphere light for more natural illumination
 const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x444444, 0.6);
@@ -105,7 +105,7 @@ loader.load("../../assets/images/glb/S7_Disepersion.glb", function (gltf) {
         opacity: 0.6,
         // iridescence: 1.0,
         // iridescenceIOR: 2.33,
-        transparent: true,
+        // transparent: true,
         // clearcoatRoughnessMap: 1,
       });
     }

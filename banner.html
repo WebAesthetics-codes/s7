@@ -31,23 +31,23 @@
         display: block;
       }
     </style>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/custom-fonts.css" />
   </head>
 
   <body>
     <section>
-      <img src="./images/text-image.png" alt="Text image" />
+      <img src="./assets/images/text-image.png" alt="Text image" />
+      <canvas id="bannerCanvas"></canvas>
     </section>
 
     <script type="importmap">
       {
         "imports": {
-          "three": "./three/build/three.module.js",
-          "three/addons/": "./three/examples/jsm/"
+          "three": "./assets/three/build/three.module.js",
+          "three/addons/": "./assets/three/examples/jsm/"
         }
       }
     </script>
     <script type="module" src="./banner.js"></script>
+    <!-- <script type="module" src="./dummy.js"></script> -->
   </body>
 </html>
