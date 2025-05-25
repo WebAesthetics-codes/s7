@@ -19,36 +19,17 @@ function drawCircle(y = 1500, r = 30) {
 }
 function smoothScrollAnim() {
   let smoother = ScrollSmoother.create({
-    wrapper: '#smooth-wrapper',
-    content: '#smooth-content',
+    wrapper: "#smooth-wrapper",
+    content: "#smooth-content",
     smooth: 2,
     smoothTouch: 0.1,
-  })
+  });
   let button = document.querySelector(".footer_top_btn");
 
   button.addEventListener("click", (e) => {
-    smoother.scrollTo(".s7-banner", true, "center center")
-
+    smoother.scrollTo(".s7-banner", true, "center center");
   });
 }
-// function scrollBanner() {
-//   gsap.set(".videoSec", { scale: 0.3, y: 0 });
-//   gsap.to(".videoSec", {
-//     scale: 1,
-//     y: -500,
-//     ease: "none",
-//     scrollTrigger: {
-//       trigger: "#s7Banner",
-//       start: "top top",
-//       end: "bottom 70%",
-//       pinSpacing: false,
-//       pin: true,
-//       scrub: .25,
-//       // snap: 1 / 5,
-//       // markers: true,
-//     },
-//   });
-// }
 
 function scrollBanner() {
   // Set initial state
@@ -65,29 +46,27 @@ function scrollBanner() {
       scrub: 1,
       // snap: 1 / 5,
       // markers: true,
-    }
+    },
   });
 
   // Add animation to the timeline
   tl.to(".videoSec", {
-    scale: .8,
+    scale: 0.8,
     y: -150,
-    ease: "none"
+    ease: "none",
   });
   tl.to(".videoSec", {
     scale: 1,
     y: -250,
-    ease: "none"
+    ease: "none",
   });
   tl.to(".videoSec", {
     y: -500,
-    ease: "none"
+    ease: "none",
   });
-
 }
 
 function videoSoundBtn() {
-
   const video = document.getElementById("mainVideo");
   const soundButton = document.getElementById("soundButton");
 
@@ -122,8 +101,6 @@ function videoSoundBtn() {
       soundButton.classList.add("icon-volume-high");
     }
   }
-
-
 }
 function loading() {
   const el = document.querySelector("#loadingText");
@@ -140,7 +117,6 @@ function loading() {
         revealText();
         document.body.style.overflow = "hidden";
         window.scrollTo(0, 0);
-
       }, 150);
     }
     if (currentIndex === fullText.length) {
@@ -184,7 +160,8 @@ function loading() {
 //     },
 //   });
 // }
-function ourWorkAnim() { //time line based
+function ourWorkAnim() {
+  //time line based
   let images = gsap.utils.toArray(".work-img");
   let imgWrapper = document.querySelector(".our-works-img__wrapper");
   let wrapperHeight = imgWrapper.offsetHeight;
@@ -204,18 +181,22 @@ function ourWorkAnim() { //time line based
       pin: true,
       scrub: 0.5,
       // markers: true,
-    }
+    },
   });
 
   // Animate images vertically as the user scrolls
   tl.to(images, {
     y: -totalScroll + 100,
-    ease: "none"
+    ease: "none",
   });
-  tl.to(heading, {
-    y: "-150", // move up slightly as images start scrolling
-    ease: "none"
-  }, 0);
+  tl.to(
+    heading,
+    {
+      y: "-150", // move up slightly as images start scrolling
+      ease: "none",
+    },
+    0,
+  );
 }
 function scaleWorksImages() {
   const images = gsap.utils.toArray(".work-img");
@@ -240,12 +221,10 @@ function scaleWorksImages() {
 }
 function waitForImagesThenRun(callback) {
   const wrapper = document.querySelector(".our-works-img__wrapper");
-  if (!wrapper) return;                 // safety‑check
+  if (!wrapper) return; // safety‑check
 
   const images = wrapper.querySelectorAll("img");
   let loaded = 0;
-
-
 
   if (images.length === 0) {
     // console.log("not img load");
@@ -254,11 +233,10 @@ function waitForImagesThenRun(callback) {
     return;
   }
 
-  images.forEach(img => {
+  images.forEach((img) => {
     if (img.complete) {
       // console.log("full img load");
       if (++loaded === images.length) callback();
-
     } else {
       img.onload = img.onerror = () => {
         if (++loaded === images.length) callback();
@@ -271,7 +249,7 @@ function workSplitTextAnim() {
   const text = textElement.textContent;
   textElement.innerHTML = "";
 
-  text.split("").forEach(char => {
+  text.split("").forEach((char) => {
     const span = document.createElement("span");
     span.textContent = char;
     span.style.color = "#666"; // light black
@@ -283,9 +261,9 @@ function workSplitTextAnim() {
     color: "#fff",
     // stagger: 0.05, // one-by-one animation
     stagger: {
-      each: 1,         // still one‑by‑one
+      each: 1, // still one‑by‑one
       from: "start",
-      repeatDelay: 25      // 5 s pause after each character’s fade completes
+      repeatDelay: 25, // 5 s pause after each character’s fade completes
     },
     scrollTrigger: {
       trigger: ".animated-text",
@@ -294,11 +272,10 @@ function workSplitTextAnim() {
       // pin: true,
       scrub: 2,
       // markers: true
-    }
+    },
   });
 }
 function canvasPing() {
-
   ScrollTrigger.create({
     trigger: ".who-we-are",
     start: "top top",
@@ -325,7 +302,10 @@ function whoWeArePin() {
 function whoWeAreAnim() {
   const title = document.querySelector("#whoWeTitle");
   const tittleWidth = title.offsetWidth;
-  const dynmaicRadius = window.innerWidth > 786 ? window.innerHeight + (window.innerWidth - window.innerHeight) : window.innerHeight;
+  const dynmaicRadius =
+    window.innerWidth > 786
+      ? window.innerHeight + (window.innerWidth - window.innerHeight)
+      : window.innerHeight;
   let scrollWidth = tittleWidth - window.innerWidth;
   // console.log(window.innerHeight + (window.innerWidth - window.innerHeight));
   const tl = gsap.timeline({
@@ -340,7 +320,13 @@ function whoWeAreAnim() {
       // markers: true,
       scrub: 2,
       onUpdate: (data) => {
-        const radius = gsap.utils.mapRange(0, 1, 30, dynmaicRadius, data.progress);
+        const radius = gsap.utils.mapRange(
+          0,
+          1,
+          30,
+          dynmaicRadius,
+          data.progress,
+        );
 
         const snapValue = gsap.utils.snap(100);
 
@@ -365,7 +351,7 @@ function whoWeAreAnim() {
 
   gsap.set("#whoWeTitle", { opacity: 0 });
   tl.fromTo("#whoWeTitle", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1 });
-  tl.fromTo("#whoWeTitle", { xPercent: 0 }, { x: -scrollWidth - 100 }, .75);
+  tl.fromTo("#whoWeTitle", { xPercent: 0 }, { x: -scrollWidth - 100 }, 0.75);
 }
 function marqueeFooter() {
   const marqueeText = document.querySelector(".marquee-text");
@@ -417,8 +403,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-
-
   gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother);
   smoothScrollAnim();
   drawCircle();
@@ -427,7 +411,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelector("#ourWorks") && workSplitTextAnim();
   document.querySelector("#whoWeAre") && whoWeAreAnim();
   document.querySelector("#marquee") && marqueeFooter();
-  document.querySelector("#whoWeAre") && whoWeArePin();
+  // document.querySelector("#whoWeAre") && whoWeArePin();
 
   const width = window.innerWidth;
   if (width > 786) {
@@ -440,5 +424,4 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(() => {
     ScrollTrigger.refresh();
   }, 5000);
-
 });
