@@ -605,7 +605,15 @@ body {
       row-gap: 100px;
 
       li {
-        align-content: center;
+        align-items: center;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+
+
+        img {
+          width: 50%;
+        }
       }
     }
   }
@@ -632,18 +640,9 @@ body {
   .wrapper {
     width: 100%;
     height: 100%;
+
     /* position: relative; */
 
-    h2 {
-      font-size: 55rem;
-      color: var(--clr-black);
-      white-space: nowrap;
-      user-select: none;
-      font-family: var(--font-sans);
-      text-transform: uppercase;
-      line-height: 0.8;
-      letter-spacing: 5px;
-    }
 
     .container {
       overflow: hidden;
@@ -653,6 +652,34 @@ body {
         display: flex;
         align-items: center;
         width: fit-content;
+
+        .title__wrapper {
+          display: flex;
+          align-items: center;
+          gap: 40px;
+
+          h2 {
+            font-size: 55rem;
+            color: var(--clr-black);
+            white-space: nowrap;
+            user-select: none;
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            line-height: 0.8;
+            letter-spacing: 5px;
+
+
+          }
+
+          img {
+            height: auto;
+            /* or whatever fits the font size visually */
+            width: 25%;
+            flex-shrink: 0;
+
+
+          }
+        }
       }
 
       /* .images {
@@ -664,15 +691,21 @@ body {
     }
   }
 
+
+
   .who-we__content {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     position: relative;
 
     padding-block: 5rem;
 
+    /* .who-content-img {
+      grid-column: 2/5;
+    } */
+
     .container {
-      grid-column: 5/13;
+      /* grid-column: 5/12; */
       display: flex;
       flex-direction: column;
       gap: 30px;
@@ -731,7 +764,17 @@ body {
           padding: 10px 50px;
           display: flex;
           align-items: center;
+          justify-content: center;
+
+          img {
+            width: 60%;
+            object-fit: contain;
+          }
         }
+      }
+
+      .sister-companies__wrapper:last-child {
+        width: 70%;
       }
     }
   }
@@ -796,6 +839,32 @@ body {
   .blog-loop:nth-of-type(3) {
     grid-column: 1/2;
     grid-row: 2/4;
+  }
+}
+
+.catalogue {
+  display: grid;
+  place-items: center;
+  padding-block: 18rem;
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+
+    .catalogue-item {
+      display: flex;
+      gap: 20px;
+      color: white;
+
+      .catalogue-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 20px;
+        text-align: justify;
+      }
+    }
   }
 }
 
@@ -1039,6 +1108,10 @@ footer {
     background-color: var(--clr-black);
 
     .container {
+      #mainVideo {
+        height: 100%;
+      }
+
       i {
         font-size: 1.5rem;
       }
@@ -1128,9 +1201,14 @@ footer {
 
   .who-we-are {
     .wrapper {
-      h2 {
-        font-size: 20rem;
-
+      .container {
+        .title {
+          .title__wrapper {
+            h2 {
+              font-size: 20rem;
+            }
+          }
+        }
       }
     }
 
@@ -1201,18 +1279,26 @@ footer {
         font-size: 1.8rem;
       }
 
-      .sister-companies__wrapper {
-        flex-direction: column;
-        gap: 10px;
+      .sister-companies__container {
 
-        .company {
-          background: #111111;
-          border-radius: 10px;
-          padding: 10px 50px;
-          display: flex;
-          align-items: center;
+        .sister-companies__wrapper {
+          flex-direction: column;
+          gap: 10px;
+
+          .company {
+            background: #111111;
+            border-radius: 10px;
+            padding: 10px 50px;
+            display: flex;
+            align-items: center;
+          }
+        }
+
+        .sister-companies__wrapper:last-child {
+          width: 100%;
         }
       }
+
     }
   }
 
@@ -1267,6 +1353,33 @@ footer {
     .blog-loop:nth-of-type(2) {
       grid-column: 1/2;
       grid-row: 1/2;
+    }
+  }
+
+  .catalogue {
+    .container {
+      grid-template-columns: 1fr;
+
+      .catalogue-item {
+        align-items: start;
+
+        img {
+          width: 35%;
+          object-fit: contain;
+        }
+
+        .catalogue-content {
+          width: 75%;
+
+          img {
+            width: 40%;
+            object-fit: contain;
+
+          }
+
+        }
+
+      }
     }
   }
 
@@ -1450,7 +1563,7 @@ footer {
     .nav {
       .nav__brand {
         img {
-          width: 100%;
+          width: 10vw;
         }
       }
     }
@@ -1482,10 +1595,39 @@ footer {
     }
   }
 
+  .our-works {
+    .container {
+      max-width: 100% !important;
+      width: 100% !important;
+      padding-inline: 3vw;
+
+      .our-works__title {
+        display: flex;
+      }
+
+      .our-works-img__wrapper {
+        display: flex;
+        padding-inline: 3vw;
+
+        .work-img {
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
   .who-we-are {
     .wrapper {
-      h2 {
-        font-size: 34vw;
+      .container {
+        .title {
+          .title__wrapper {
+            h2 {
+              font-size: 34vw;
+            }
+          }
+        }
       }
     }
 
@@ -1509,6 +1651,55 @@ footer {
           img {
             width: 50%;
             margin-inline: auto;
+          }
+        }
+      }
+    }
+  }
+
+  .sister-companies {
+    .container {
+      .sister-companies__container {
+        width: 100%;
+        padding-inline: 7vw;
+
+        .sister-companies__wrapper {
+          width: 100%;
+
+          li {
+            width: 80%;
+
+            img {
+              width: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+
+        .sister-companies__wrapper:last-child {
+          width: 70%;
+        }
+      }
+    }
+  }
+
+  .catalogue {
+    .container {
+      padding-inline: 10vw;
+      gap: 5vw;
+    }
+  }
+
+  footer .footer__about-us img {
+    width: 10vw;
+  }
+
+  footer {
+    .container {
+      .footer__wrapper {
+        .footer__about-us {
+          img {
+            width: 10vw;
           }
         }
       }

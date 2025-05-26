@@ -316,7 +316,7 @@ function whoWeArePin() {
   ScrollTrigger.create({
     trigger: "#whoWeAre",
     start: "top top",
-    end: "+=" + scrollWidth * 2.5,
+    end: "+=" + scrollWidth * 3,
     pin: true,
     // pinSpacing: false,
     // markers: true
@@ -325,6 +325,10 @@ function whoWeArePin() {
 function whoWeAreAnim() {
   const title = document.querySelector("#whoWeTitle");
   const tittleWidth = title.offsetWidth;
+  const imgLast = document.querySelector(".who-last-img");
+  let imgLastWidth = window.innerWidth > 786 ? imgLast.offsetWidth + 200 : imgLast.offsetWidth;
+  console.log(imgLastWidth);
+
   const dynmaicRadius = window.innerWidth > 786 ? window.innerHeight + (window.innerWidth - window.innerHeight) : window.innerHeight;
   let scrollWidth = tittleWidth - window.innerWidth;
   // console.log(window.innerHeight + (window.innerWidth - window.innerHeight));
@@ -334,7 +338,7 @@ function whoWeAreAnim() {
       start: "top center",
       // end: `+=${2000}%`,
 
-      end: "+=" + scrollWidth * 2.5,
+      end: "+=" + scrollWidth * 3,
       // pin: true,
 
       // markers: true,
@@ -365,7 +369,7 @@ function whoWeAreAnim() {
 
   gsap.set("#whoWeTitle", { opacity: 0 });
   tl.fromTo("#whoWeTitle", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1 });
-  tl.fromTo("#whoWeTitle", { xPercent: 0 }, { x: -scrollWidth - 100 }, .75);
+  tl.fromTo("#whoWeTitle", { xPercent: 0 }, { x: -scrollWidth - imgLastWidth }, .75);
 }
 function marqueeFooter() {
   const marqueeText = document.querySelector(".marquee-text");
@@ -392,19 +396,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const navToggler = document.querySelector("#navToggler");
 
-  const fetchVideo = async () => {
-    try {
-      const res = await fetch("./assets/video/s7_video.mp4");
-      const blobData = await res.blob();
-      const videoUrl = URL.createObjectURL(blobData);
-      const videoEl = document.getElementById("mainVideo");
-      videoEl.src = videoUrl;
-      videoEl.load();
-    } catch (err) {
-      console.error(err);
-    }
-  };
-  fetchVideo();
+  // const fetchVideo = async () => {
+  //   try {
+  //     const res = await fetch("./assets/video/s7_video.mp4");
+  //     const blobData = await res.blob();
+  //     const videoUrl = URL.createObjectURL(blobData);
+  //     const videoEl = document.getElementById("mainVideo");
+  //     videoEl.src = videoUrl;
+  //     videoEl.load();
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
+  // fetchVideo();
 
   navToggler.addEventListener("click", function () {
     const navDropdown = document.querySelector("#navDropDown");
