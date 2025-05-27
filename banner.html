@@ -1,53 +1,58 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3D image</title>
-    <style>
-      body,
-      html {
-        margin: 0;
-        overflow: hidden;
-        height: 100%;
-      }
-      .banner {
-        width: 100vw;
-        height: 100vh;
-        background: black;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .content-view h2 {
-        color: white;
-        font-size: 150px;
-      }
-      canvas {
-        position: absolute;
-        /* background: black; */
-        z-index: 100;
-        inset: 0;
-        display: block;
-      }
-    </style>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/custom-fonts.css" />
-  </head>
 
-  <body>
-    <section>
-      <img src="./images/text-image.png" alt="Text image" />
-    </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D image</title>
+  <style>
+    body,
+    html {
+      margin: 0;
+      overflow: hidden;
+      height: 100%;
+    }
 
-    <script type="importmap">
+    .banner {
+      width: 100vw;
+      height: 100vh;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .content-view h2 {
+      color: white;
+      font-size: 150px;
+    }
+
+    canvas {
+      position: absolute;
+      /* background: black; */
+      z-index: 100;
+      inset: 0;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <img src="./assets/images/text-image.png" alt="Text image" />
+    <canvas id="bannerCanvas"></canvas>
+  </section>
+
+  <script type="importmap">
       {
         "imports": {
-          "three": "./three/build/three.module.js",
-          "three/addons/": "./three/examples/jsm/"
+          "three": "./assets/three/build/three.module.js",
+          "three/addons/": "./assets/three/examples/jsm/"
         }
       }
     </script>
-    <script type="module" src="./js/3d.js"></script>
-  </body>
+  <script type="module" src="./assets/js/banner.js"></script>
+  <!-- <script type="module" src="./dummy.js"></script> -->
+</body>
+
 </html>

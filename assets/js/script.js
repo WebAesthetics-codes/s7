@@ -189,7 +189,7 @@ function ourWorkAnim() { //time line based
   let imgWrapper = document.querySelector(".our-works-img__wrapper");
   let wrapperHeight = imgWrapper.offsetHeight;
   let heading = document.querySelector("#ourWorkTitle");
-  console.log(heading);
+  // console.log(heading);
 
   const imageHeight = images[1].offsetHeight;
 
@@ -327,7 +327,7 @@ function whoWeAreAnim() {
   const tittleWidth = title.offsetWidth;
   const imgLast = document.querySelector(".who-last-img");
   let imgLastWidth = window.innerWidth > 786 ? imgLast.offsetWidth + 200 : imgLast.offsetWidth;
-  console.log(imgLastWidth);
+  // console.log(imgLastWidth);
 
   const dynmaicRadius = window.innerWidth > 786 ? window.innerHeight + (window.innerWidth - window.innerHeight) : window.innerHeight;
   let scrollWidth = tittleWidth - window.innerWidth;

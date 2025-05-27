@@ -57,9 +57,11 @@
 
       <main>
         <section class="s7-banner h-screen" id="s7Banner">
+
           <div class="container">
             <h1 class="s7-banner__title"> <span>We Create </span> <span> Culture</span> </h1>
           </div>
+          <canvas id="myCanvas3D"></canvas>
         </section>
 
         <div class="section-wrapper">
@@ -612,7 +614,15 @@
       </footer>
     </div>
   </div>
-
+  <script type="importmap">
+      {
+        "imports": {
+          "three": "./assets/three/build/three.module.js",
+          "three/addons/": "./assets/three/examples/jsm/"
+        }
+      }
+    </script>
+  <script type="module" src="./assets/js/banner.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
